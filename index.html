@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#102b23" />
+    <meta name="description" content="저희의 겨울 결혼식에 초대합니다. 예식 일정과 오시는 길을 확인해 주세요." />
+    <title>결혼식에 초대합니다 · Wedding Invitation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./styles.css?v=winter-guest" />
+    <script type="module" src="./src/main.js?v=winter-guest"></script>
+  </head>
+  <body>
+    <div class="opening" id="opening" role="dialog" aria-modal="true" aria-labelledby="opening-title">
+      <picture class="winter-landscape">
+        <source media="(orientation: landscape)" srcset="./assets/winter-pines-wide.webp" />
+        <img src="./assets/winter-pines-mobile.webp" alt="" fetchpriority="high" />
+      </picture>
+      <div class="snowfall snowfall-back" aria-hidden="true"></div>
+      <div class="envelope-scene">
+        <div class="mailpiece">
+          <div class="enclosed-letter" aria-hidden="true">
+            <span class="letter-heading" lang="en">You are <i>invited</i></span>
+            <span class="cover-city" lang="en"></span>
+            <img src="./assets/calla-still-life.webp" width="900" height="900" alt="" />
+          </div>
+          <svg class="envelope-pocket" viewBox="0 0 220 110" preserveAspectRatio="none" aria-hidden="true">
+            <path d="M0 0 110 58 220 0v110H0Z" fill="#112d24"/>
+            <path d="M0 0 104 55 0 110Z" fill="#19392d"/>
+            <path d="m220 0-104 55 104 55Z" fill="#0c241d"/>
+            <path d="m0 110 105-56q5-3 10 0l105 56Z" fill="#112d24"/>
+            <path d="m0 109.7 105-56q5-3 10 0l105 56" fill="none" stroke="#a0b395" stroke-opacity=".39" stroke-width=".36"/>
+          </svg>
+          <div class="envelope-flap">
+            <div class="flap-paper">
+              <h1 id="opening-title" lang="en">Wedding <em>Invitation</em></h1>
+            </div>
+          </div>
+          <button class="wax-seal" id="open-invitation" type="button" aria-describedby="seal-hint">
+            <img src="./assets/calla-engraving.svg" alt="" width="30" height="38" />
+            <span class="visually-hidden" data-i18n="openLetter">봉투 열기</span>
+          </button>
+        </div>
+        <p class="seal-hint" id="seal-hint" data-i18n="sealHint">노란 봉인을 눌러 열어주세요</p>
+        <div class="cover-appointment">
+          <p class="opening-date"></p>
+          <p class="opening-venue"></p>
+        </div>
+      </div>
+      <div class="snowfall snowfall-front" aria-hidden="true"></div>
+    </div>
+
+    <main class="invitation" id="invitation" inert>
+      <header class="topbar">
+        <a class="monogram" href="#home">Wedding <i>letter</i></a>
+        <div class="language" role="group" aria-label="Language">
+          <button class="language-button is-active" type="button" data-lang="ko" aria-pressed="true">한국어</button>
+          <button class="language-button" type="button" data-lang="en" aria-pressed="false">English</button>
+        </div>
+      </header>
+
+      <section class="hero" id="home">
+        <div class="letter-ornament" aria-hidden="true"><img src="./assets/calla-engraving.svg" width="46" height="60" alt="" /></div>
+        <p class="section-label">A letter to you</p>
+        <h1 class="hero-title" tabindex="-1"></h1>
+        <p class="hero-korean reveal" id="hero-local-names">신랑 · 신부</p>
+        <p class="body-copy" id="invitation-message"></p>
+        <div class="hero-details reveal">
+          <p id="hero-date">날짜를 입력해 주세요</p>
+          <p id="hero-time">시간을 입력해 주세요</p>
+          <p class="hero-venue" id="hero-venue">예식장 정보를 입력해 주세요</p>
+        </div>
+        <nav class="quick-links"><a href="#date" data-i18n="dateTitle">함께할 날</a><a href="#venue" data-i18n="venueTitle">오시는 길</a><a href="#gallery" data-i18n="albumLink">사진첩</a></nav>
+      </section>
+
+      <section class="section date-section" id="date">
+        <p class="section-label reveal">THE DAY</p>
+        <h2 class="section-title reveal" data-i18n="dateTitle">함께할 날</h2>
+        <div class="date-card reveal">
+          <p class="date-card-month" id="calendar-month">DATE</p>
+          <div class="weekdays" aria-hidden="true"><span>S</span><span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span></div>
+          <div class="calendar-grid" id="calendar-grid"><span class="calendar-empty">날짜를 설정하면 달력이 표시됩니다</span></div>
+          <p class="countdown" id="countdown">결혼식 날짜를 기다리고 있어요</p>
+        </div>
+        <div class="schedule reveal" id="schedule-list"></div>
+      </section>
+
+      <section class="section venue-section" id="venue">
+        <p class="section-label reveal">LOCATION</p>
+        <h2 class="section-title reveal" data-i18n="venueTitle">오시는 길</h2>
+        <div class="venue-copy reveal">
+          <div class="address-heading" aria-hidden="true"><span>Destination</span><img src="./assets/calla-engraving.svg" alt="" width="24" height="30" /></div>
+          <h3 id="venue-name">예식장 이름</h3><p id="venue-hall">홀 정보를 입력해 주세요</p><p id="venue-address">주소를 입력해 주세요</p>
+        </div>
+        <div class="button-row reveal">
+          <button class="text-button" id="copy-address" type="button" disabled data-i18n="copyAddress">주소 복사</button>
+          <a class="text-button is-disabled" id="map-link" href="#venue" aria-disabled="true" data-i18n="directions">길찾기 ↗</a>
+        </div>
+        <div class="transport reveal" id="transport-list"></div>
+      </section>
+
+      <section class="section gallery-section" id="gallery">
+        <p class="section-label reveal">OUR MOMENTS</p>
+        <h2 class="section-title reveal" data-i18n="galleryTitle">두 사람의 순간</h2>
+        <p class="section-note reveal" id="gallery-note"></p>
+        <div class="gallery-grid reveal" id="gallery-grid"></div>
+      </section>
+
+      <section class="section movie-section" id="movie">
+        <p class="section-label reveal">WEDDING FILM</p>
+        <h2 class="section-title reveal" data-i18n="movieTitle">웨딩 무비</h2>
+        <div class="movie-frame reveal" id="movie-frame">
+          <div class="movie-placeholder"><span>YOUR FILM</span><small data-i18n="movieEmpty">영상 URL을 설정하면 플레이어가 표시됩니다</small></div>
+        </div>
+      </section>
+
+      <section class="section contact-section" id="contact">
+        <p class="section-label reveal">CONTACT</p>
+        <h2 class="section-title reveal" data-i18n="contactTitle">마음 전하실 곳</h2>
+        <div class="contact-list reveal" id="contact-list"></div>
+        <details class="family-contacts" id="family-contacts" hidden><summary data-i18n="family">가족 연락처</summary><div class="contact-list" id="family-list"></div></details>
+        <div class="reveal" id="accounts" hidden><h3 data-i18n="accountTitle">계좌번호 안내</h3><div id="account-list"></div></div>
+      </section>
+
+      <section class="section guestbook-section" id="guestbook">
+        <p class="section-label reveal">GUESTBOOK</p>
+        <h2 class="section-title reveal" data-i18n="guestbookTitle">축하의 마음</h2>
+        <div class="notice reveal"><strong data-i18n="previewLabel">미리보기</strong><span data-i18n="guestbookNotice">지금은 미리보기예요. 메시지는 저장되지 않습니다.</span></div>
+        <details class="guestbook-preview">
+          <summary data-i18n="viewGuestbook">방명록 양식 보기</summary>
+          <form class="guestbook-form" id="guestbook-form">
+          <label><span data-i18n="nameLabel">이름</span><input type="text" maxlength="30" autocomplete="name" disabled /></label>
+          <label><span data-i18n="messageLabel">메시지</span><textarea maxlength="300" rows="4" disabled></textarea></label>
+          <button class="primary-button" type="submit" disabled data-i18n="submitMessage">미리보기 · 작성 불가</button>
+          </form>
+        </details>
+      </section>
+
+      <section class="section closing">
+        <div class="letter-ornament" aria-hidden="true"><img src="./assets/calla-engraving.svg" width="38" height="48" alt="" /></div>
+        <p class="section-label reveal">With love</p>
+        <h2 class="closing-title reveal" data-i18n="thankYou">고맙습니다</h2>
+        <p class="body-copy reveal" data-i18n="closingMessage">저희의 새로운 시작을<br />따뜻한 마음으로 축복해 주세요.</p>
+        <div class="share-actions reveal">
+          <button class="primary-button" id="share-button" type="button" data-i18n="share">초대장 공유하기</button>
+          <button class="secondary-button" id="copy-link" type="button" data-i18n="copyLink">링크 복사</button>
+          <button class="secondary-button" id="calendar-button" type="button" disabled data-i18n="addCalendar">캘린더에 추가</button>
+        </div>
+      </section>
+    </main>
+
+    <dialog class="lightbox" id="lightbox" aria-label="Photo viewer">
+      <button class="lightbox-close" type="button" aria-label="Close viewer">×</button>
+      <button class="lightbox-nav lightbox-prev" type="button" aria-label="Previous photo">←</button>
+      <figure><img id="lightbox-image" alt="" /><figcaption id="lightbox-caption" aria-live="polite"></figcaption></figure>
+      <button class="lightbox-nav lightbox-next" type="button" aria-label="Next photo">→</button>
+    </dialog>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  </body>
+</html>
