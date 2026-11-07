@@ -3,53 +3,35 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-    <meta name="theme-color" content="#102b23" />
+    <meta name="theme-color" content="#fbf7f2" />
     <meta name="description" content="저희의 겨울 결혼식에 초대합니다. 예식 일정과 오시는 길을 확인해 주세요." />
     <title>결혼식에 초대합니다 · Wedding Invitation</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="./styles.css?v=winter-guest" />
-    <script type="module" src="./src/main.js?v=winter-guest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Gowun+Batang&family=Pinyon+Script&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./styles.css?v=camellia-2" />
+    <script type="module" src="./src/main.js?v=camellia-2"></script>
   </head>
   <body>
     <div class="opening" id="opening" role="dialog" aria-modal="true" aria-labelledby="opening-title">
-      <picture class="winter-landscape">
-        <source media="(orientation: landscape)" srcset="./assets/winter-pines-wide.webp" />
-        <img src="./assets/winter-pines-mobile.webp" alt="" fetchpriority="high" />
-      </picture>
-      <div class="snowfall snowfall-back" aria-hidden="true"></div>
-      <div class="envelope-scene">
-        <div class="mailpiece">
-          <div class="enclosed-letter" aria-hidden="true">
-            <span class="letter-heading" lang="en">You are <i>invited</i></span>
-            <span class="cover-city" lang="en"></span>
-            <img src="./assets/calla-still-life.webp" width="900" height="900" alt="" />
+      <article class="cover-sheet">
+        <img class="camellia-frame" src="./assets/camellia-frame.webp" width="1024" height="1536" alt="" fetchpriority="high" />
+        <div class="cover-copy">
+          <span class="cover-monogram" lang="en" aria-hidden="true"></span>
+          <p class="cover-prelude" lang="en">Join us<br />for the wedding of</p>
+          <h1 id="opening-title" lang="en"><span>Our</span><span>Wedding</span></h1>
+          <p class="cover-names"></p>
+          <div class="cover-appointment">
+            <p class="opening-weekday"></p>
+            <p class="opening-numeric-date"></p>
+            <p class="opening-time"></p>
+            <p class="opening-venue"></p>
           </div>
-          <svg class="envelope-pocket" viewBox="0 0 220 110" preserveAspectRatio="none" aria-hidden="true">
-            <path d="M0 0 110 58 220 0v110H0Z" fill="#112d24"/>
-            <path d="M0 0 104 55 0 110Z" fill="#19392d"/>
-            <path d="m220 0-104 55 104 55Z" fill="#0c241d"/>
-            <path d="m0 110 105-56q5-3 10 0l105 56Z" fill="#112d24"/>
-            <path d="m0 109.7 105-56q5-3 10 0l105 56" fill="none" stroke="#a0b395" stroke-opacity=".39" stroke-width=".36"/>
-          </svg>
-          <div class="envelope-flap">
-            <div class="flap-paper">
-              <h1 id="opening-title" lang="en">Wedding <em>Invitation</em></h1>
-            </div>
-          </div>
-          <button class="wax-seal" id="open-invitation" type="button" aria-describedby="seal-hint">
-            <img src="./assets/calla-engraving.svg" alt="" width="30" height="38" />
-            <span class="visually-hidden" data-i18n="openLetter">봉투 열기</span>
+          <button class="open-card" id="open-invitation" type="button">
+            <span data-i18n="openLetter">초대장 펼치기</span><span aria-hidden="true">↓</span>
           </button>
         </div>
-        <p class="seal-hint" id="seal-hint" data-i18n="sealHint">노란 봉인을 눌러 열어주세요</p>
-        <div class="cover-appointment">
-          <p class="opening-date"></p>
-          <p class="opening-venue"></p>
-        </div>
-      </div>
-      <div class="snowfall snowfall-front" aria-hidden="true"></div>
+      </article>
     </div>
 
     <main class="invitation" id="invitation" inert>
@@ -62,7 +44,7 @@
       </header>
 
       <section class="hero" id="home">
-        <div class="letter-ornament" aria-hidden="true"><img src="./assets/calla-engraving.svg" width="46" height="60" alt="" /></div>
+        <div class="letter-ornament" aria-hidden="true"><img src="./assets/camellia-mark.svg" width="64" height="70" alt="" /></div>
         <p class="section-label">A letter to you</p>
         <h1 class="hero-title" tabindex="-1"></h1>
         <p class="hero-korean reveal" id="hero-local-names">신랑 · 신부</p>
@@ -91,7 +73,7 @@
         <p class="section-label reveal">LOCATION</p>
         <h2 class="section-title reveal" data-i18n="venueTitle">오시는 길</h2>
         <div class="venue-copy reveal">
-          <div class="address-heading" aria-hidden="true"><span>Destination</span><img src="./assets/calla-engraving.svg" alt="" width="24" height="30" /></div>
+          <div class="address-heading" aria-hidden="true"><span>Destination</span><img src="./assets/camellia-mark.svg" alt="" width="34" height="38" /></div>
           <h3 id="venue-name">예식장 이름</h3><p id="venue-hall">홀 정보를 입력해 주세요</p><p id="venue-address">주소를 입력해 주세요</p>
         </div>
         <div class="button-row reveal">
@@ -139,7 +121,7 @@
       </section>
 
       <section class="section closing">
-        <div class="letter-ornament" aria-hidden="true"><img src="./assets/calla-engraving.svg" width="38" height="48" alt="" /></div>
+        <div class="letter-ornament" aria-hidden="true"><img src="./assets/camellia-mark.svg" width="64" height="70" alt="" /></div>
         <p class="section-label reveal">With love</p>
         <h2 class="closing-title reveal" data-i18n="thankYou">고맙습니다</h2>
         <p class="body-copy reveal" data-i18n="closingMessage">저희의 새로운 시작을<br />따뜻한 마음으로 축복해 주세요.</p>

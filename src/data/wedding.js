@@ -1,8 +1,8 @@
 // Edit this file to personalize the invitation. Empty values stay disabled in the UI.
 export const wedding = {
   couple: {
-    groom: { en: '', ko: '', phone: '', email: '' },
-    bride: { en: '', ko: '', phone: '', email: '' },
+    groom: { en: 'Jiun Lee', ko: '', phone: '', email: '' },
+    bride: { en: 'Daeun Jung', ko: '', phone: '', email: '' },
   },
   event: {
     // ISO 8601 with the venue's UTC offset; timezone controls display and D-day.
@@ -46,8 +46,8 @@ export const translations = {
   ko: {
     photoViewer: '사진 보기', closePhoto: '사진 닫기', prevPhoto: '이전 사진', nextPhoto: '다음 사진', photoUnavailable: '사진을 불러올 수 없어요',
     groom: '신랑', bride: '신부', call: '전화', email: '이메일', family: '가족 연락처', loadMovie: '웨딩 영상 열기',
-    openLetter: '봉투 열기', albumLink: '사진첩', thankYou: '고맙습니다',
-    sealHint: '노란 봉인을 눌러 열어주세요',
+    openLetter: '초대장 펼치기', albumLink: '사진첩', thankYou: '고맙습니다',
+
     viewGuestbook: '방명록 양식 보기',
     heroKicker: '우리, 결혼합니다', scroll: '아래로', invitationTitle: '소중한 분들을<br />저희 결혼식에 초대합니다',
     invitationBody: '이곳에 두 분의 초대 문구를 적어 주세요.<br />마음을 담은 문장은 설정 파일에서 쉽게 바꿀 수 있습니다.',
@@ -62,8 +62,8 @@ export const translations = {
   en: {
     photoViewer: 'Photo viewer', closePhoto: 'Close viewer', prevPhoto: 'Previous photo', nextPhoto: 'Next photo', photoUnavailable: 'Photo unavailable',
     groom: 'Groom', bride: 'Bride', call: 'Call', email: 'Email', family: 'Family contacts', loadMovie: 'Open wedding film',
-    openLetter: 'Open the envelope', albumLink: 'Album', thankYou: 'Thank you',
-    sealHint: 'Tap the yellow seal to open',
+    openLetter: 'Open invitation', albumLink: 'Album', thankYou: 'Thank you',
+
     viewGuestbook: 'Preview the guestbook form',
     heroKicker: 'WE ARE GETTING MARRIED', scroll: 'Scroll', invitationTitle: 'We warmly invite you<br />to celebrate with us',
     invitationBody: 'Add your personal invitation message here.<br />Every detail is editable in one configuration file.',

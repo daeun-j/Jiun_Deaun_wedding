@@ -1,6 +1,6 @@
-# 겨울 청첩장 · Winter wedding invitation
+# Jiun & Daeun · Camellia wedding invitation
 
-2027년 1월 16일 토요일 오전 11시(한국 시간), 서울 지타워 컨벤션. 눈 덮인 숲의 봉인을 누르면 청첩장이 열립니다. 한국어와 영어를 지원합니다.
+2027년 1월 16일 토요일 오전 11시(한국 시간), 서울 지타워 컨벤션. 아이보리 바탕의 블루 동백꽃 청첩장에 Jiun Lee와 Daeun Jung의 이름을 담았습니다. 표지의 ‘초대장 펼치기’를 누르면 본문이 나타납니다. 한국어와 영어를 지원합니다.
 
 ## 개발과 배포
 
@@ -24,7 +24,9 @@
 - **영상:** `movieUrl`에 `./assets/wedding.mp4` 또는 YouTube/Vimeo 링크를 넣으세요. 외부 플레이어는 하객이 눌렀을 때만 로드하며 자동 재생하지 않습니다. 빈 값이면 섹션을 숨깁니다.
 - **연락처·계좌:** 공개에 동의한 값만 입력하세요. 전화·메일은 `couple`에, 선택 가족 연락처는 `family`에, 계좌는 `accounts`에 추가합니다. `side`는 `groom` 또는 `bride`입니다. 접어 둔 내용도 소스에는 공개됩니다.
 - **공유:** 네이티브 공유가 지원되지 않으면 링크 복사를 사용합니다. 전용 카카오톡 공유 버튼은 미설정입니다. 추가하려면 소유한 Kakao Developers 앱의 JavaScript 키와 배포 도메인 등록이 필요합니다. [공식 가이드](https://developers.kakao.com/docs/ko/kakaotalk-share/js-link)
-- **배경:** [Mariana Buras의 노르웨이 설경](https://unsplash.com/photos/a-snow-covered-pine-tree-in-the-snow-opLzqpzcif8)을 [Unsplash License](https://unsplash.com/license)에 따라 사용했습니다. 모바일·가로 화면용 이미지를 로컬에서 제공합니다.
+- **꽃 장식:** 제공된 참고 이미지의 분위기를 바탕으로 Imagegen으로 새로 만든 동백꽃 선화입니다. 표지는 `assets/camellia-frame.webp`, 작은 장식은 `assets/camellia-mark.svg`입니다. 생성 사양은 `assets/camellia-frame.prompt.txt`에 있습니다.
+- **색상·서체:** `styles.css`의 `:root`에서 아이보리·더스티 블루 팔레트를 관리합니다. Pinyon Script 이름, Cormorant Garamond 영문, Gowun Batang 한글을 사용합니다.
+- **이전 디자인 자산:** 사용하지 않는 설경은 [Mariana Buras / Unsplash](https://unsplash.com/photos/a-snow-covered-pine-tree-in-the-snow-opLzqpzcif8)의 사진입니다. 현재 페이지에서는 로드하지 않습니다.
 
 ## 방명록
 

@@ -1,4 +1,4 @@
-import { wedding, translations } from './data/wedding.js';
+import { wedding, translations } from './data/wedding.js?v=camellia-2';
 import { calendarParts, daysUntil, calendarFile } from './event-time.mjs';
 
 const $ = (selector, scope = document) => scope.querySelector(selector);
@@ -39,8 +39,21 @@ function render() {
   $('#hero-time').textContent = start ? formatTime(start) : (language === 'ko' ? '시간을 입력해 주세요' : 'Add the ceremony time');
   $('#hero-venue').textContent = localeValue(wedding.event.venue);
   if ($('#opening')) {
-    $('.cover-city').textContent = wedding.event.city || '';
-    $('.opening-date').textContent = start ? [formatDate(start), formatTime(start)].join(' · ') : '';
+    const coverNames = [groom, bride].map(person => person.en || localeValue(person)).filter(Boolean);
+    $('.cover-sheet').classList.toggle('has-couple-names', coverNames.length > 0);
+    $('#opening-title').replaceChildren(...coverNames.flatMap((name, index) => {
+      const label = element('span', name);
+      if (!index) return [label];
+      const ampersand = element('span', '&'); ampersand.className = 'name-ampersand';
+      return [ampersand, label];
+    }));
+    if (!coverNames.length) $('#opening-title').append(element('span', 'Our'), element('span', 'Wedding'));
+    $('.cover-monogram').replaceChildren(...(coverNames.length ? coverNames.map(name => element('span', name[0])) : [element('span', 'W')]));
+    $('.cover-names').textContent = language === 'ko' ? '우리, 결혼합니다.' : 'We’re getting married.';
+    $('.opening-weekday').textContent = start ? new Intl.DateTimeFormat(language === 'ko' ? 'ko-KR' : 'en-US', {weekday:'long',timeZone:wedding.event.timezone}).format(start) : '';
+    const parts = start && calendarParts(start, wedding.event.timezone);
+    $('.opening-numeric-date').textContent = parts ? [parts.year, String(parts.month).padStart(2,'0'), String(parts.day).padStart(2,'0')].join(' · ') : '';
+    $('.opening-time').textContent = start ? formatTime(start) : '';
     $('.opening-venue').textContent = localeValue(wedding.event.venue);
   }
   $('#invitation-message').textContent = localeValue(wedding.invitation);
@@ -147,36 +160,13 @@ function renderMovie() {
 function openPhoto(index) { activePhoto = (index + wedding.photos.length) % wedding.photos.length; const photo = wedding.photos[activePhoto]; $('#lightbox-image').src = photo.src; $('#lightbox-image').alt = localeValue(photo.alt); $('#lightbox-caption').textContent = `${activePhoto + 1} / ${wedding.photos.length}`; if (!$('#lightbox').open) $('#lightbox').showModal(); }
 function shareUrl() { return location.origin + location.pathname; }
 async function copyText(text, success) { try { await navigator.clipboard.writeText(text); showToast(success); } catch { showToast(language === 'ko' ? '복사하지 못했어요' : 'Could not copy'); } }
-// Stagger a fixed set of flakes so snowfall is already in progress on arrival.
-function addSnow(layer, count, foreground = false) {
-  const flakes = document.createDocumentFragment();
-  for (let index = 0; index < count; index++) {
-    const flake = document.createElement('i');
-    const size = foreground ? 14 + Math.random() * 8 : 7 + Math.random() ** 2 * 24;
-    const duration = foreground ? 13 : 10 + Math.random() * 6 - size / 8;
-    // Stagger the near flakes across the envelope so only one or two pass at once.
-    const phase = foreground ? ((index * 5 + 0.4) % count) / count : Math.random();
-    flake.style.left = `${(index + 0.2 + Math.random() * 0.6) / count * 100}%`;
-    flake.style.width = `${size}px`;
-    flake.style.animationDuration = `${duration}s`;
-    flake.style.animationDelay = `-${phase * duration}s`;
-    flake.style.setProperty('--drift', `${Math.random() * 76 - 38}px`);
-    flake.style.setProperty('--spin', `${Math.random() * 200 - 100}deg`);
-    flake.style.setProperty('--glint', String(foreground ? 0.8 : 0.45 + Math.random() * 0.45));
-    flakes.append(flake);
-  }
-  layer.append(flakes);
-}
-addSnow($('.snowfall-back'), 26);
-addSnow($('.snowfall-front'), 6, true);
-
 $('#open-invitation').addEventListener('click', async () => {
   const opening = $('#opening');
   opening.classList.add('is-opening');
   // The overlay's fade is the final animation. Reduced motion skips the sequence.
   await Promise.allSettled(opening.getAnimations().map(animation => animation.finished));
   opening.remove();
-  $('meta[name="theme-color"]').content = '#faf8f2';
+  $('meta[name="theme-color"]').content = '#fbf7f2';
   $('#invitation').inert = false;
   document.body.classList.add('is-invitation-open');
   window.scrollTo({ top: 0, behavior: 'instant' });
