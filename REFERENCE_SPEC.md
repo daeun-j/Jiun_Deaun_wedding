@@ -12,8 +12,8 @@ The supplied attachment contains the brief but no recording. No video frames, ti
 
 | Reference / comparison | Decision for this invitation | Priority |
 | --- | --- | --- |
-| Portrait card over a neutral surround | Updated to the November 7 reference: a portrait ivory card, blue camellia border, J/D monogram, script names Jiun Lee and Daeun Jung, and “Join us for the wedding of”. Venue and time are visible before opening. | Keep the couple’s chosen cover. |
-| Named illustrated hero with a real portrait | Ivory letter with a floral engraving and editable Korean/English copy. Names and portraits remain unfilled. | Replace sample photos when approved. |
+| Portrait card over a neutral surround | Updated to the November 7 reference: a full-height ivory card without mobile margins, blue camellia border, script names Jiun Lee and Daeun Jung, and “Join us for the wedding of”. Venue and time are visible before opening. | Keep the couple’s chosen cover. |
+| Named illustrated hero with a real portrait | Ivory letter with a floral engraving and editable Korean/English copy. The Korean names are 이지언 and 정다은; the English names are Jiun Lee and Daeun Jung. Portraits remain placeholders. | Replace sample photos when approved. |
 | Multi-day schedule, dress code, Hawaii map and questionnaire | One confirmed ceremony, Seoul-local calendar, venue shuttle and driving directions. Omit travel RSVP and attire requirements that do not apply. | Address and correct time are essential. |
 | Long narrow page with photo grid and tap-to-zoom | Centered 550px maximum reading width. The three-column grid crops thumbnails; the viewer contains the full image and provides arrows, swipe, and keyboard navigation. | Preserve the mobile reading and gallery flow. |
 | Optional interactions described in the brief | User-initiated film, family/contact disclosures, separate account groups, guestbook preview, copy/share and calendar export. Hide optional sections without content. | Never publish invented personal details. |

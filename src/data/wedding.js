@@ -1,8 +1,8 @@
 // Edit this file to personalize the invitation. Empty values stay disabled in the UI.
 export const wedding = {
   couple: {
-    groom: { en: 'Jiun Lee', ko: '', phone: '', email: '' },
-    bride: { en: 'Daeun Jung', ko: '', phone: '', email: '' },
+    groom: { en: 'Jiun Lee', ko: '이지언', phone: '', email: '' },
+    bride: { en: 'Daeun Jung', ko: '정다은', phone: '', email: '' },
   },
   event: {
     // ISO 8601 with the venue's UTC offset; timezone controls display and D-day.

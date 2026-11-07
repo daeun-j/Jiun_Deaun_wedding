@@ -1,4 +1,4 @@
-import { wedding, translations } from './data/wedding.js?v=camellia-2';
+import { wedding, translations } from './data/wedding.js?v=camellia-full';
 import { calendarParts, daysUntil, calendarFile } from './event-time.mjs';
 
 const $ = (selector, scope = document) => scope.querySelector(selector);
@@ -32,7 +32,7 @@ function render() {
   const { groom, bride } = wedding.couple;
   $('.hero-title').textContent = language === 'ko' ? '우리, 결혼합니다.' : 'We’re getting married.';
   const names = [groom, bride].map(localeValue).filter(Boolean);
-  $('#hero-local-names').textContent = names.join(' · ');
+  $('#hero-local-names').textContent = names.join(language === 'ko' ? ', ' : ' · ');
   $('#hero-local-names').hidden = names.length === 0;
   const start = wedding.event.startsAt ? new Date(wedding.event.startsAt) : null;
   $('#hero-date').textContent = start ? formatDate(start) : (language === 'ko' ? '날짜를 입력해 주세요' : 'Add your wedding date');
@@ -48,7 +48,6 @@ function render() {
       return [ampersand, label];
     }));
     if (!coverNames.length) $('#opening-title').append(element('span', 'Our'), element('span', 'Wedding'));
-    $('.cover-monogram').replaceChildren(...(coverNames.length ? coverNames.map(name => element('span', name[0])) : [element('span', 'W')]));
     $('.cover-names').textContent = language === 'ko' ? '우리, 결혼합니다.' : 'We’re getting married.';
     $('.opening-weekday').textContent = start ? new Intl.DateTimeFormat(language === 'ko' ? 'ko-KR' : 'en-US', {weekday:'long',timeZone:wedding.event.timezone}).format(start) : '';
     const parts = start && calendarParts(start, wedding.event.timezone);
