@@ -6,13 +6,6 @@ export const wedding = {
   },
   // Only the date was provided; elapsed time starts at midnight in Seoul.
   firstMet: '2025-01-09T00:00:00+09:00',
-  music: {
-    title: "Baby, It's Cold Outside",
-    artist: 'Dean Martin',
-    // A local MP3/M4A or direct HTTPS audio URL enables app-free, full playback.
-    audioUrl: '',
-    spotifyTrackId: '4MrfQL4TYQXJBlZYpAHTuE',
-  },
   event: {
     // ISO 8601 with the venue's UTC offset; timezone controls display and D-day.
     startsAt: '2027-01-16T11:00:00+09:00',

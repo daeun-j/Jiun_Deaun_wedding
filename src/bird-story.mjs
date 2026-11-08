@@ -16,6 +16,7 @@ export function createBirdStory() {
   let sceneReady = false;
   let stage = 'closed';
   let flight;
+  let userPaused = false;
 
   // Reuse the painted sheet as a fixed body and two articulated wings. Never
   // replace the whole bird with another frame, which shifts its head and chest.
@@ -50,20 +51,20 @@ export function createBirdStory() {
 
   function sync() {
     const hidden = !started || away || document.hidden || !!document.querySelector('dialog[open]') || !!document.fullscreenElement;
+    if (!hidden) {
+      if (stage === 'flying' && sceneReady && branch.complete && branch.naturalWidth) {
+        perch(reducedMotion.matches ? 'settled' : 'blooming');
+      } else if (reducedMotion.matches && stage === 'blooming') {
+        perch();
+      }
+    }
     body.dataset.birdsHidden = String(hidden);
     // Keep a partially seen ending paused until the guest scrolls back to it.
-    body.dataset.birdsPaused = String(hidden || (stage !== 'flying' && !sceneVisible));
+    body.dataset.birdsPaused = String(hidden || (stage === 'flying' ? userPaused : !sceneVisible));
     if (flight) {
-      const play = !hidden && stage === 'flying' && !reducedMotion.matches;
+      const play = !hidden && !userPaused && stage === 'flying' && !reducedMotion.matches;
       if (play && flight.playState !== 'running') flight.play();
       else if (!play && flight.playState !== 'paused') flight.pause();
-    }
-    if (hidden) return;
-    if (stage === 'flying' && sceneReady && branch.complete && branch.naturalWidth) {
-      perch(reducedMotion.matches ? 'settled' : 'blooming');
-      flight?.pause();
-    } else if (reducedMotion.matches && stage === 'blooming') {
-      perch();
     }
   }
 
@@ -80,6 +81,14 @@ export function createBirdStory() {
     if (event.target === branch && event.animationName === 'camellia-colour') {
       setStage('settled');
     }
+    sync();
+  });
+
+  traveler.addEventListener('click', () => {
+    userPaused = !userPaused;
+    traveler.setAttribute('aria-pressed', String(userPaused));
+    traveler.setAttribute('aria-label', userPaused ? '새 움직임 다시 시작' : '새 움직임 멈추기');
+    traveler.title = userPaused ? '다시 누르면 날아요' : '누르면 멈춰요';
     sync();
   });
 
