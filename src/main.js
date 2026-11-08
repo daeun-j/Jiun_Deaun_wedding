@@ -1,7 +1,7 @@
 import { wedding } from './data/wedding.js?v=perched-birds';
 import { calendarParts, daysUntil, durationParts, calendarFile } from './event-time.mjs?v=camellia-story';
 import { createBirdStory } from './bird-story.mjs?v=bird-toggle';
-import { createBackgroundMusic } from './music.mjs?v=invitation-music';
+import { createBackgroundMusic } from './music.mjs?v=original-volume';
 
 const $ = (selector, scope = document) => scope.querySelector(selector);
 const $$ = (selector, scope = document) => [...scope.querySelectorAll(selector)];
