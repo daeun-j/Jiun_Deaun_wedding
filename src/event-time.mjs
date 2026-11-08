@@ -12,6 +12,18 @@ export function daysUntil(start, now, timeZone) {
   return dayNumber(start) - dayNumber(now);
 }
 
+// Exact elapsed duration for the live counters, clamped at zero at the boundary.
+export function durationParts(start, end) {
+  const seconds = Math.max(0, Math.floor((new Date(end) - new Date(start)) / 1000));
+  if (!Number.isFinite(seconds)) return null;
+  return {
+    days: Math.floor(seconds / 86400),
+    hours: Math.floor(seconds / 3600) % 24,
+    minutes: Math.floor(seconds / 60) % 60,
+    seconds: seconds % 60,
+  };
+}
+
 export function calendarFile(event, title, locationText, host, now = new Date()) {
   const stamp = date => new Date(date).toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, '');
   const escape = value => value.replaceAll('\\', '\\\\').replaceAll(',', '\\,').replaceAll(';', '\\;').replace(/\r?\n/g, '\\n');

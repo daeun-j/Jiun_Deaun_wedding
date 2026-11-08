@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { calendarParts, daysUntil, calendarFile } from '../src/event-time.mjs';
+import { calendarParts, daysUntil, durationParts, calendarFile } from '../src/event-time.mjs';
 
 const zone = 'Asia/Seoul';
 const event = { startsAt: '2027-01-16T11:00:00+09:00' };
@@ -18,4 +18,12 @@ test('the exported event is 11 am in Seoul; Unicode venue lines survive folding'
   assert.doesNotMatch(file, /DTEND/);
   assert.ok(file.split('\r\n').every(line => Buffer.byteLength(line) <= 75));
   assert.ok(file.replaceAll('\r\n ', '').includes('LOCATION:' + location.replace(',', '\\,')));
+});
+
+test('live timers handle second and day boundaries without negative values', () => {
+  assert.deepEqual(durationParts('2027-01-15T10:59:59+09:00', start), {days: 1, hours: 0, minutes: 0, seconds: 1});
+  assert.deepEqual(durationParts(start, start), {days: 0, hours: 0, minutes: 0, seconds: 0});
+  assert.deepEqual(durationParts('2027-01-16T11:00:01+09:00', start), {days: 0, hours: 0, minutes: 0, seconds: 0});
+  assert.deepEqual(durationParts('2025-01-09T00:00:00+09:00', '2026-01-09T12:34:56+09:00'), {days: 365, hours: 12, minutes: 34, seconds: 56});
+  assert.equal(durationParts('invalid', start), null);
 });
