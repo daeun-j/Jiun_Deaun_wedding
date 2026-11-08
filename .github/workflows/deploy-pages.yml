@@ -22,8 +22,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
-      - name: Check ceremony time and calendar export
-        run: node --test tests/event-time.test.mjs
+      - name: Check ceremony time, calendar export and bird flight
+        run: node --test tests/*.test.mjs
       - name: Stage the public invitation
         run: sh scripts/build.sh dist
       - uses: actions/configure-pages@v5

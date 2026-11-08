@@ -1,16 +1,42 @@
+import { flightFrames, FLIGHT_DURATION } from './bird-flight.mjs?v=smooth-flight';
+
 // One uninterrupted story: opening → flight → two landings → camellias in colour.
-// CSS animation time pauses with the page; no wall-clock timers skip the ending.
+// Both animation clocks pause with the page; no wall-clock timer skips the ending.
 export function createBirdStory() {
   const body = document.body;
   const scene = document.querySelector('.camellia-story');
   const branch = scene.querySelector('.camellia-branch');
   const birds = [...scene.querySelectorAll('.landing-bird')];
+  const journey = document.querySelector('.bird-journey');
+  const traveler = journey.querySelector('.traveling-bird');
   const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
   let started = false;
   let away = !document.hasFocus();
   let sceneVisible = false;
   let sceneReady = false;
   let stage = 'closed';
+  let flight;
+
+  // Reuse the painted sheet as a fixed body and two articulated wings. Never
+  // replace the whole bird with another frame, which shifts its head and chest.
+  document.querySelectorAll('.sparrow').forEach(sparrow => {
+    const rig = document.createElement('span');
+    rig.className = 'sparrow-flight';
+    for (const name of ['sparrow-wing sparrow-wing-far', 'sparrow-body', 'sparrow-wing sparrow-wing-near']) {
+      const part = document.createElement('span');
+      part.className = name;
+      rig.append(part);
+    }
+    sparrow.append(rig);
+  });
+
+  function resizeFlight() {
+    if (!started || reducedMotion.matches) return;
+    const frames = flightFrames(journey.clientWidth, journey.clientHeight);
+    if (flight) flight.effect.setKeyframes(frames);
+    else flight = traveler.animate(frames, { duration: FLIGHT_DURATION, iterations: Infinity, easing: 'linear' });
+  }
+  new ResizeObserver(() => { resizeFlight(); sync(); }).observe(journey);
 
   function setStage(next) {
     stage = next;
@@ -27,10 +53,16 @@ export function createBirdStory() {
     body.dataset.birdsHidden = String(hidden);
     // Keep a partially seen ending paused until the guest scrolls back to it.
     body.dataset.birdsPaused = String(hidden || (stage !== 'flying' && !sceneVisible));
+    if (flight) {
+      const play = !hidden && stage === 'flying' && !reducedMotion.matches;
+      if (play && flight.playState !== 'running') flight.play();
+      else if (!play && flight.playState !== 'paused') flight.pause();
+    }
     if (hidden) return;
     if (stage === 'flying' && sceneReady && branch.complete && branch.naturalWidth) {
       if (reducedMotion.matches) settle();
       else setStage('landing');
+      flight?.pause();
     } else if (reducedMotion.matches && ['landing', 'blooming'].includes(stage)) {
       settle();
     }
@@ -59,7 +91,7 @@ export function createBirdStory() {
   const dialogs = new MutationObserver(sync);
   document.querySelectorAll('dialog').forEach(dialog => dialogs.observe(dialog, { attributes: true, attributeFilter: ['open'] }));
   document.addEventListener('fullscreenchange', sync);
-  reducedMotion.addEventListener('change', sync);
+  reducedMotion.addEventListener('change', () => { resizeFlight(); sync(); });
 
   const leave = () => { away = true; sync(); };
   const returnToInvitation = () => { away = false; sync(); };
@@ -89,6 +121,7 @@ export function createBirdStory() {
       if (started) return;
       started = true;
       setStage('flying');
+      resizeFlight();
       sync();
     }
   };

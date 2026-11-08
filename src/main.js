@@ -1,6 +1,6 @@
 import { wedding } from './data/wedding.js?v=camellia-bus';
 import { calendarParts, daysUntil, durationParts, calendarFile } from './event-time.mjs?v=camellia-story';
-import { createBirdStory } from './bird-story.mjs?v=camellia-birds';
+import { createBirdStory } from './bird-story.mjs?v=smooth-flight';
 
 const $ = (selector, scope = document) => scope.querySelector(selector);
 const $$ = (selector, scope = document) => [...scope.querySelectorAll(selector)];
