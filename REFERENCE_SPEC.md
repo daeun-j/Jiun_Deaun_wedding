@@ -42,4 +42,4 @@ The traveling sparrow is a 64px button: tap/click or press Enter/Space to pause 
 
 ## Music, November 8
 
-Defer music per the user’s latest instruction. Remove the player and music controls, and make no Spotify/YouTube requests. The user will provide an MP3 file later for direct, app-free playback.
+Use the user-provided `itcoldoutside.m4a` as a same-origin, looping audio asset. Attempt audible playback on the first cover before the invitation is opened; browsers may require a user gesture, so retry on the first click/tap or Enter/Space. Show a small Korean music on/off control on the cover and keep it throughout the invitation. Preserve playback position when opening the cover. Remember an explicit off preference, and never let an unrelated tap restart music the guest turned off. Pause while the document is hidden; resume on return only if still wanted. Do not load Spotify/YouTube players or use the earlier generated waltz draft.

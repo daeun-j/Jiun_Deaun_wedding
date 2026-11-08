@@ -9,11 +9,17 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Gowun+Batang&family=Pinyon+Script&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="./styles.css?v=bird-no-ring" />
-    <script type="module" src="./src/main.js?v=bird-toggle"></script>
+    <link rel="stylesheet" href="./styles.css?v=invitation-music" />
+    <script type="module" src="./src/main.js?v=invitation-music"></script>
   </head>
   <body>
     <div class="opening" id="opening" role="dialog" aria-modal="true" aria-labelledby="opening-title">
+      <div class="music-controls" id="music-controls">
+        <button class="music-toggle" id="music-toggle" type="button" aria-label="음악 켜기" aria-pressed="false" aria-controls="invitation-music" data-music="paused">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4V5Z" /><path class="music-waves" d="M15 8a6 6 0 0 1 0 8m3-11a10 10 0 0 1 0 14" /><path class="music-slash" d="m16 9 5 6m0-6-5 6" /></svg>
+          <span id="music-label">음악 켜기</span>
+        </button>
+      </div>
       <article class="cover-sheet">
         <img class="camellia-frame" src="./assets/camellia-frame.webp" width="1024" height="1536" alt="" fetchpriority="high" />
         <div class="cover-copy">
@@ -31,6 +37,8 @@
         </div>
       </article>
     </div>
+
+    <audio id="invitation-music" src="./assets/itcoldoutside.m4a" preload="metadata" loop></audio>
 
     <main class="invitation" id="invitation" inert>
       <section class="hero" id="home">
