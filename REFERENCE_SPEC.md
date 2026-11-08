@@ -33,3 +33,9 @@ Venue map, phone, hall and transit details were checked against https://www.g-to
 Latest copy cleanup: remove the guestbook and the small labels above the invitation, calendar, venue, gallery and elapsed-time sections. The first-met caption reads “2025.01.09부터”; the closing heading reads “새로운 시작을 함께 축하해 주세요.”
 
 Cover appointment: date, “토요일 오전 11:00”, venue; no separate weekday line. Remove the venue phone and album preview note. Keep the transport source link at https://www.g-towerconvention.kr/reservation/. The six existing placeholders repeat across 18 slots until actual photos are supplied.
+
+## Sparrow and camellia story
+
+The user's two minhwa references inform new, transparent hand-painted sparrow and camellia assets. Preserve the blue cover and all existing copy. Opening the invitation starts a small sparrow's slow 30-second flight around the reading column. At the final poem, two sparrows approach separate branch perches over 5.8 and 7.2 seconds; only after both land does the grey camellia illustration regain its red blossoms and green leaves over 4.2 seconds. This sequence runs once per opening, without a control or extra label.
+
+All birds are decorative, hidden from assistive technology and transparent to pointer input. Photo/contact dialogs, external-link handoffs, tab/app switches and full-screen media hide the birds and pause their animation clocks. Leaving the ending out of view pauses its sequence; returning resumes it. Reduced motion omits the flight and shows the finished illustration when the ending enters view. Keep the existing 18-photo viewer, transport information and poem untouched.

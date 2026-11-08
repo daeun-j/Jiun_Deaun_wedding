@@ -1,0 +1,14 @@
+Built-in image_gen tool. Generated for this project on 2026-11-07.
+
+SPARROW SPRITE
+Use case: illustration-story.
+Asset type: a production animation sprite sheet for a refined Korean wedding invitation.
+Create a transparent square 2-by-2 sprite sheet with exactly four poses of the SAME tiny Eurasian tree sparrow, facing RIGHT in every cell. Use traditional Korean minhwa botanical painting, fine brown ink, delicate hand-painted watercolor and colored-pencil feather texture, like sparrows perched among camellias. Chestnut cap, dark cheek, small dark beak, warm buff cream breast, brown wings, muted natural colors. Elegant, tender, anatomically believable, not cartoon or photorealistic.
+GRID AND ALIGNMENT ARE CRITICAL: each of four equal square quadrants contains one complete isolated bird, identical scale, the head and torso center at exactly the same relative position in each quadrant, ample transparent padding on every side. No dividing lines.
+Top-left: flying, wings raised. Top-right: flying, wings partly extended horizontally. Bottom-left: flying, wings lowered. Bottom-right: perched with wings neatly folded and little feet visible. Body remains horizontal, beak pointing right, tail pointing left in all four. The entire bird fits in its cell without overlap. No branch, flowers, scenery, lettering, border, shadow, or backdrop. Genuinely transparent background (alpha), including between the birds.
+
+CAMELLIA BRANCH
+Use case: illustration-story.
+Asset type: transparent decorative botanical illustration for the ending of a refined Korean wedding invitation, with space for separately animated sparrows.
+Create a delicate horizontal flowering camellia branch in traditional Korean minhwa painting style: fine warm brown ink, hand-painted watercolor and colored-pencil texture on the petals and leaves. A graceful gently rising brown twig from left bottom to right middle, three rich muted vermilion-red camellia blossoms with rounded overlapping petals and tiny golden stamens. Deep jade green leaves, beautifully veined, a few small closed buds. Restrained, graceful asymmetrical composition with much negative space, like a small botanical vignette, not a wreath, not dense. Branch silhouette gently spans a landscape canvas, all artwork fully inside the canvas with 10 percent transparent margin.
+One red blossom near the left lower quarter, a second centered slightly lower, the third near the upper right. Leave TWO short unobstructed horizontal twig segments toward the upper-left and center-right where small birds can later perch. No birds at all. Not photorealistic, not cartoon, no text, no border, no paper rectangle, no background or shadow. Genuine transparent alpha background.

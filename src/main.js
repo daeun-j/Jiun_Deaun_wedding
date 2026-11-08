@@ -1,5 +1,6 @@
 import { wedding } from './data/wedding.js?v=camellia-bus';
 import { calendarParts, daysUntil, durationParts, calendarFile } from './event-time.mjs?v=camellia-story';
+import { createBirdStory } from './bird-story.mjs?v=camellia-birds';
 
 const $ = (selector, scope = document) => scope.querySelector(selector);
 const $$ = (selector, scope = document) => [...scope.querySelectorAll(selector)];
@@ -213,11 +214,13 @@ function shareUrl() { return location.origin + location.pathname; }
 async function copyText(text, success) {
   try { await navigator.clipboard.writeText(text); showToast(success); } catch { showToast('복사하지 못했어요. 다시 시도해 주세요.'); }
 }
+const birdStory = createBirdStory();
 $('#open-invitation').addEventListener('click', async () => {
   const opening = $('#opening'); opening.classList.add('is-opening');
   await Promise.allSettled(opening.getAnimations().map(animation => animation.finished));
   opening.remove(); $('#invitation').inert = false; document.body.classList.add('is-invitation-open');
   window.scrollTo({ top: 0, behavior: 'instant' }); $('.hero-title').focus({ preventScroll: true });
+  birdStory.start();
 }, { once: true });
 $('#open-contacts').addEventListener('click', () => $('#contact-dialog').showModal());
 $('.dialog-close').addEventListener('click', () => $('#contact-dialog').close());

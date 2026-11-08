@@ -195,13 +195,76 @@ button:disabled { opacity: .33; cursor: default; }
 .closing-title { font-size: 27px; color: var(--ink); }
 .share-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; max-width: 370px; margin: 35px auto 0; }
 .share-actions .primary-button { grid-column: 1/-1; }
-.poem-ending { position: relative; overflow: hidden; text-align: center; padding: 75px 18px max(65px, env(safe-area-inset-bottom)); background: var(--paper); }
-.poem-ending > img { opacity: .6; width: 52px; height: auto; }
+.poem-ending { position: relative; overflow: hidden; text-align: center; padding: 35px 18px max(65px, env(safe-area-inset-bottom)); background: var(--paper); }
 .poem-ending blockquote { margin: 30px 0 18px; font: clamp(14px, 3.9vw, 19px)/2.25 var(--serif); letter-spacing: -.04em; }
 .poem-ending blockquote strong { font-weight: 600; }
 .poem-ending cite { font: 11px/1.6 var(--serif); color: var(--muted); }
 .poem-message { margin: 32px auto 0; font: clamp(12px, 3.4vw, 16px)/2.2 var(--serif); letter-spacing: -.04em; }
 .poem-signature { margin: 45px 0 0; font: 12px/1.6 var(--serif); letter-spacing: .15em; color: var(--accent); }
+
+/* Minhwa-inspired sparrows. Every decorative layer is inert to touch and focus. */
+.bird-journey { --flight-width: min(100vw, 550px); position: fixed; inset: 0; margin-inline: auto; width: var(--flight-width); height: 100dvh; overflow: hidden; pointer-events: none; z-index: 5; visibility: hidden; }
+.traveling-bird { display: block; position: absolute; top: 0; left: 0; width: 64px; height: 64px; opacity: 0; }
+.sparrow { display: block; width: 100%; height: 100%; background: url('./assets/sparrow-sprite.webp') 100% 100% / 200% 200% no-repeat; }
+.camellia-story { position: relative; width: min(100%, 420px); aspect-ratio: 1.45; margin: 0 auto; pointer-events: none; }
+.camellia-branch { position: absolute; bottom: 0; left: 0; width: 100%; height: auto; filter: grayscale(1); opacity: .5; }
+.landing-bird { display: block; position: absolute; width: 23%; aspect-ratio: 1; opacity: 0; }
+.landing-bird-first { left: 13%; top: 30%; }
+.landing-bird-second { left: 58%; top: 37%; }
+.landing-bird-second .sparrow { scale: -1 1; }
+body[data-bird-story='flying'] .bird-journey { visibility: visible; }
+body:is([data-bird-story='landing'], [data-bird-story='blooming'], [data-bird-story='settled']) .landing-bird { opacity: 1; }
+body[data-bird-story='settled'] .camellia-branch { filter: grayscale(0); opacity: 1; }
+/* Also hide synchronously when a native dialog opens, before the observer runs. */
+body[data-birds-hidden='true'] :is(.bird-journey, .landing-bird), body:has(dialog[open]) :is(.bird-journey, .landing-bird) { visibility: hidden; }
+body[data-birds-paused='true'] :is(.traveling-bird, .sparrow, .landing-bird, .camellia-branch) { animation-play-state: paused !important; }
+
+@media (prefers-reduced-motion: no-preference) {
+  body[data-bird-story='flying'] .traveling-bird { animation: sparrow-journey 30s ease-in-out infinite; }
+  body[data-bird-story='flying'] .traveling-bird .sparrow,
+  body[data-bird-story='landing'] .landing-bird:not(.is-perched) .sparrow { animation: sparrow-wings .85s step-end infinite; }
+  body[data-bird-story='landing'] .landing-bird-first { animation: sparrow-arrive-left 5.8s cubic-bezier(.25,.5,.3,1) both; }
+  body[data-bird-story='landing'] .landing-bird-second { animation: sparrow-arrive-right 6.5s .7s cubic-bezier(.25,.5,.3,1) both; }
+  body[data-bird-story='blooming'] .camellia-branch { animation: camellia-colour 4.2s ease-in-out both; }
+  @keyframes sparrow-wings {
+    0%, 100% { background-position: 0 0; }
+    25%, 75% { background-position: 100% 0; }
+    50% { background-position: 0 100%; }
+  }
+  @keyframes sparrow-journey {
+    0% { transform: translate(-66px, 68svh) rotate(-12deg); opacity: 0; }
+    9% { transform: translate(0, 57svh) rotate(-10deg); opacity: .85; }
+    28% { transform: translate(8px, 31svh) rotate(-6deg); opacity: .85; }
+    43% { transform: translate(calc(var(--flight-width) * .14), 9svh) rotate(-4deg); opacity: .85; }
+    58% { transform: translate(calc(var(--flight-width) * .70), 6svh) rotate(7deg); opacity: .85; }
+    74% { transform: translate(calc(var(--flight-width) - 62px), 30svh) rotate(12deg); opacity: .85; }
+    91% { transform: translate(calc(var(--flight-width) - 62px), 61svh) rotate(8deg); opacity: .8; }
+    100% { transform: translate(calc(var(--flight-width) + 12px), 75svh) rotate(4deg); opacity: 0; }
+  }
+  @keyframes sparrow-arrive-left {
+    0% { transform: translate(-160%, -155%) rotate(-12deg) scale(.8); opacity: 0; }
+    15% { opacity: 1; }
+    48% { transform: translate(-60%, -85%) rotate(6deg) scale(.94); }
+    78% { transform: translate(-9%, -27%) rotate(-5deg); }
+    94% { transform: translate(0, -3%) rotate(2deg); }
+    100% { transform: none; opacity: 1; }
+  }
+  @keyframes sparrow-arrive-right {
+    0% { transform: translate(155%, -150%) rotate(12deg) scale(.8); opacity: 0; }
+    15% { opacity: 1; }
+    46% { transform: translate(75%, -92%) rotate(-5deg) scale(.94); }
+    80% { transform: translate(12%, -25%) rotate(4deg); }
+    94% { transform: translate(0, -3%) rotate(-2deg); }
+    100% { transform: none; opacity: 1; }
+  }
+  @keyframes camellia-colour {
+    from { filter: grayscale(1); opacity: .5; }
+    to { filter: grayscale(0); opacity: 1; }
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .bird-journey { display: none; }
+}
 .lightbox { position: fixed; inset: 0; width: 100%; height: 100dvh; max-width: none; max-height: none; margin: 0; padding: 0; border: 0; overflow: hidden; color: white; background: #293b49; }
 .lightbox::backdrop { background: #293b49; }
 .lightbox[open] { display: block; }

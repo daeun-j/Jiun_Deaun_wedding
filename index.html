@@ -9,8 +9,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Gowun+Batang&family=Pinyon+Script&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="./styles.css?v=camellia-subway" />
-    <script type="module" src="./src/main.js?v=camellia-bus"></script>
+    <link rel="stylesheet" href="./styles.css?v=camellia-birds" />
+    <script type="module" src="./src/main.js?v=camellia-birds"></script>
   </head>
   <body>
     <div class="opening" id="opening" role="dialog" aria-modal="true" aria-labelledby="opening-title">
@@ -133,13 +133,19 @@
         </div>
       </section>
       <footer class="poem-ending">
-        <img src="./assets/camellia-mark.svg" width="64" height="70" alt="" />
+        <div class="camellia-story" aria-hidden="true">
+          <img class="camellia-branch" src="./assets/camellia-branch.webp" width="1752" height="897" alt="" loading="lazy" decoding="async" />
+          <span class="landing-bird landing-bird-first"><span class="sparrow"></span></span>
+          <span class="landing-bird landing-bird-second"><span class="sparrow"></span></span>
+        </div>
         <blockquote><strong>추운 겨울날 너를 만나<br />내 안의 사계절이 모두 봄이 되었다.</strong></blockquote>
         <cite>— 흔글, 〈계절〉 중에서</cite>
         <p class="poem-message">서로에게 유일한 봄이 되어줄 두 사람이<br />이제 믿음과 사랑으로 평생을 함께하려 합니다.<br />저희의 새로운 시작을 오셔서<br />축복해 주시면 감사하겠습니다.</p>
         <p class="poem-signature">이지언 · 정다은</p>
       </footer>
     </main>
+
+    <div class="bird-journey" aria-hidden="true"><span class="traveling-bird"><span class="sparrow"></span></span></div>
 
     <dialog class="contact-dialog" id="contact-dialog" aria-labelledby="contact-dialog-title">
       <div class="dialog-heading"><h2 id="contact-dialog-title">연락하기</h2><button type="button" class="dialog-close" aria-label="연락처 닫기">×</button></div>
