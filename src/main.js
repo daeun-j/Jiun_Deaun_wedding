@@ -1,10 +1,9 @@
-import { wedding, translations } from './data/wedding.js?v=camellia-full';
+import { wedding, translations } from './data/wedding.js?v=camellia-ko';
 import { calendarParts, daysUntil, calendarFile } from './event-time.mjs';
 
 const $ = (selector, scope = document) => scope.querySelector(selector);
 const $$ = (selector, scope = document) => [...scope.querySelectorAll(selector)];
-let language = 'ko';
-try { if (localStorage.getItem('wedding-language') === 'en') language = 'en'; } catch { /* Storage may be disabled. */ }
+const language = 'ko';
 let activePhoto = 0;
 
 function localeValue(value) { return value?.[language] || value?.ko || value?.en || ''; }
@@ -28,7 +27,6 @@ function render() {
   for (const [cls,key] of [['close','closePhoto'], ['prev','prevPhoto'], ['next','nextPhoto']]) $('.lightbox-' + cls).setAttribute('aria-label', t[key]);
   document.documentElement.lang = language;
   $$('[data-i18n]').forEach(el => { const value = t[el.dataset.i18n]; if (value) el.innerHTML = value; });
-  $$('.language-button').forEach(button => { const active = button.dataset.lang === language; button.classList.toggle('is-active', active); button.setAttribute('aria-pressed', active); });
   const { groom, bride } = wedding.couple;
   $('.hero-title').textContent = language === 'ko' ? '우리, 결혼합니다.' : 'We’re getting married.';
   const names = [groom, bride].map(localeValue).filter(Boolean);
@@ -171,7 +169,6 @@ $('#open-invitation').addEventListener('click', async () => {
   window.scrollTo({ top: 0, behavior: 'instant' });
   $('.hero-title').focus({ preventScroll: true });
 }, { once: true });
-$$('.language-button').forEach(button => button.addEventListener('click', () => { language = button.dataset.lang; try { localStorage.setItem('wedding-language', language); } catch { /* The toggle still works. */ } render(); }));
 let swipeStart;
 const photoFrame = $('#lightbox figure');
 photoFrame.addEventListener('touchstart', e => { swipeStart = e.touches.length === 1 ? [e.touches[0].clientX, e.touches[0].clientY] : null; }, {passive:true});

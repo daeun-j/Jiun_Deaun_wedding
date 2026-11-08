@@ -23,7 +23,7 @@
   --fade-ease: ease-out;
 }
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; scroll-padding-top: 64px; }
+html { scroll-behavior: smooth; scroll-padding-top: 20px; }
 body { margin: 0; color: var(--ink); background: var(--linen); font: 16px/1.7 var(--serif); word-break: keep-all; overflow-wrap: break-word; }
 body:not(.is-invitation-open) { overflow: hidden; }
 button, input, textarea { font: inherit; color: inherit; }
@@ -80,12 +80,7 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outlin
   @keyframes lift-stationery { to { transform: translateY(-20px); } }
 }
 
-.invitation { width: min(100%, var(--column)); margin: auto; background: var(--paper); }
-.topbar { position: sticky; top: 0; z-index: 10; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: env(safe-area-inset-top) var(--gutter) 0; min-height: 60px; background: var(--paper); border-bottom: 1px solid var(--line); }
-.monogram { font: 21px var(--latin); text-decoration: none; letter-spacing: -.05em; }
-.language { display: flex; gap: 6px; align-items: center; }
-.language-button { padding: 8px 5px; min-width: 44px; min-height: 44px; background: transparent; border: 0; font: 12px var(--sans); color: var(--muted); }
-.language-button.is-active { color: var(--ink); text-decoration: underline; text-underline-offset: 5px; }
+.invitation { display: flow-root; width: min(100%, var(--column)); margin: auto; padding-top: env(safe-area-inset-top); background: var(--paper); }
 .hero, .section { padding: var(--section-space) var(--gutter); }
 .hero {
   position: relative;
@@ -136,7 +131,7 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outlin
   border: 1px solid var(--line);
 }
 .address-heading { display: flex; justify-content: space-between; align-items: center; margin-bottom: 13px; }
-.address-heading span { color: var(--muted); font: italic 18px var(--latin); }
+.address-heading span { color: var(--muted); font: 13px var(--serif); }
 .address-heading img { box-sizing: content-box; padding: 4px 7px; }
 .venue-copy #venue-address { margin-top: 13px; padding-top: 10px; border-top: 1px solid var(--line); }
 .venue-copy h3 { margin: 0 0 6px; font-size: 22px; font-weight: 400; }

@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <meta name="theme-color" content="#fbf7f2" />
     <meta name="description" content="저희의 겨울 결혼식에 초대합니다. 예식 일정과 오시는 길을 확인해 주세요." />
-    <title>결혼식에 초대합니다 · Wedding Invitation</title>
+    <title>이지언 · 정다은의 결혼식에 초대합니다</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Gowun+Batang&family=Pinyon+Script&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="./styles.css?v=camellia-full" />
-    <script type="module" src="./src/main.js?v=camellia-full"></script>
+    <link rel="stylesheet" href="./styles.css?v=camellia-ko" />
+    <script type="module" src="./src/main.js?v=camellia-ko"></script>
   </head>
   <body>
     <div class="opening" id="opening" role="dialog" aria-modal="true" aria-labelledby="opening-title">
@@ -34,14 +34,6 @@
     </div>
 
     <main class="invitation" id="invitation" inert>
-      <header class="topbar">
-        <a class="monogram" href="#home">Wedding <i>letter</i></a>
-        <div class="language" role="group" aria-label="Language">
-          <button class="language-button is-active" type="button" data-lang="ko" aria-pressed="true">한국어</button>
-          <button class="language-button" type="button" data-lang="en" aria-pressed="false">English</button>
-        </div>
-      </header>
-
       <section class="hero" id="home">
         <div class="letter-ornament" aria-hidden="true"><img src="./assets/camellia-mark.svg" width="64" height="70" alt="" /></div>
         <h1 class="hero-title" tabindex="-1"></h1>
@@ -56,11 +48,11 @@
       </section>
 
       <section class="section date-section" id="date">
-        <p class="section-label reveal">THE DAY</p>
+        <p class="section-label reveal">예식 안내</p>
         <h2 class="section-title reveal" data-i18n="dateTitle">함께할 날</h2>
         <div class="date-card reveal">
-          <p class="date-card-month" id="calendar-month">DATE</p>
-          <div class="weekdays" aria-hidden="true"><span>S</span><span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span></div>
+          <p class="date-card-month" id="calendar-month">예식 날짜</p>
+          <div class="weekdays" aria-hidden="true"><span>일</span><span>월</span><span>화</span><span>수</span><span>목</span><span>금</span><span>토</span></div>
           <div class="calendar-grid" id="calendar-grid"><span class="calendar-empty">날짜를 설정하면 달력이 표시됩니다</span></div>
           <p class="countdown" id="countdown">결혼식 날짜를 기다리고 있어요</p>
         </div>
@@ -68,10 +60,10 @@
       </section>
 
       <section class="section venue-section" id="venue">
-        <p class="section-label reveal">LOCATION</p>
+        <p class="section-label reveal">예식 장소</p>
         <h2 class="section-title reveal" data-i18n="venueTitle">오시는 길</h2>
         <div class="venue-copy reveal">
-          <div class="address-heading" aria-hidden="true"><span>Destination</span><img src="./assets/camellia-mark.svg" alt="" width="34" height="38" /></div>
+          <div class="address-heading" aria-hidden="true"><span>예식장 안내</span><img src="./assets/camellia-mark.svg" alt="" width="34" height="38" /></div>
           <h3 id="venue-name">예식장 이름</h3><p id="venue-hall">홀 정보를 입력해 주세요</p><p id="venue-address">주소를 입력해 주세요</p>
         </div>
         <div class="button-row reveal">
@@ -82,22 +74,22 @@
       </section>
 
       <section class="section gallery-section" id="gallery">
-        <p class="section-label reveal">OUR MOMENTS</p>
+        <p class="section-label reveal">사진첩</p>
         <h2 class="section-title reveal" data-i18n="galleryTitle">두 사람의 순간</h2>
         <p class="section-note reveal" id="gallery-note"></p>
         <div class="gallery-grid reveal" id="gallery-grid"></div>
       </section>
 
       <section class="section movie-section" id="movie">
-        <p class="section-label reveal">WEDDING FILM</p>
+        <p class="section-label reveal">웨딩 영상</p>
         <h2 class="section-title reveal" data-i18n="movieTitle">웨딩 무비</h2>
         <div class="movie-frame reveal" id="movie-frame">
-          <div class="movie-placeholder"><span>YOUR FILM</span><small data-i18n="movieEmpty">영상 URL을 설정하면 플레이어가 표시됩니다</small></div>
+          <div class="movie-placeholder"><span>우리의 영상</span><small data-i18n="movieEmpty">영상 URL을 설정하면 플레이어가 표시됩니다</small></div>
         </div>
       </section>
 
       <section class="section contact-section" id="contact">
-        <p class="section-label reveal">CONTACT</p>
+        <p class="section-label reveal">연락처</p>
         <h2 class="section-title reveal" data-i18n="contactTitle">마음 전하실 곳</h2>
         <div class="contact-list reveal" id="contact-list"></div>
         <details class="family-contacts" id="family-contacts" hidden><summary data-i18n="family">가족 연락처</summary><div class="contact-list" id="family-list"></div></details>
@@ -105,7 +97,7 @@
       </section>
 
       <section class="section guestbook-section" id="guestbook">
-        <p class="section-label reveal">GUESTBOOK</p>
+        <p class="section-label reveal">방명록</p>
         <h2 class="section-title reveal" data-i18n="guestbookTitle">축하의 마음</h2>
         <div class="notice reveal"><strong data-i18n="previewLabel">미리보기</strong><span data-i18n="guestbookNotice">지금은 미리보기예요. 메시지는 저장되지 않습니다.</span></div>
         <details class="guestbook-preview">
@@ -120,7 +112,7 @@
 
       <section class="section closing">
         <div class="letter-ornament" aria-hidden="true"><img src="./assets/camellia-mark.svg" width="64" height="70" alt="" /></div>
-        <p class="section-label reveal">With love</p>
+        <p class="section-label reveal">감사한 마음을 담아</p>
         <h2 class="closing-title reveal" data-i18n="thankYou">고맙습니다</h2>
         <p class="body-copy reveal" data-i18n="closingMessage">저희의 새로운 시작을<br />따뜻한 마음으로 축복해 주세요.</p>
         <div class="share-actions reveal">
@@ -131,11 +123,11 @@
       </section>
     </main>
 
-    <dialog class="lightbox" id="lightbox" aria-label="Photo viewer">
-      <button class="lightbox-close" type="button" aria-label="Close viewer">×</button>
-      <button class="lightbox-nav lightbox-prev" type="button" aria-label="Previous photo">←</button>
+    <dialog class="lightbox" id="lightbox" aria-label="사진 보기">
+      <button class="lightbox-close" type="button" aria-label="사진 닫기">×</button>
+      <button class="lightbox-nav lightbox-prev" type="button" aria-label="이전 사진">←</button>
       <figure><img id="lightbox-image" alt="" /><figcaption id="lightbox-caption" aria-live="polite"></figcaption></figure>
-      <button class="lightbox-nav lightbox-next" type="button" aria-label="Next photo">→</button>
+      <button class="lightbox-nav lightbox-next" type="button" aria-label="다음 사진">→</button>
     </dialog>
     <div class="toast" id="toast" role="status" aria-live="polite"></div>
   </body>
