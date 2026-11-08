@@ -1,4 +1,4 @@
-import { wedding } from './data/wedding.js?v=camellia-subway';
+import { wedding } from './data/wedding.js?v=camellia-bus';
 import { calendarParts, daysUntil, durationParts, calendarFile } from './event-time.mjs?v=camellia-story';
 
 const $ = (selector, scope = document) => scope.querySelector(selector);
