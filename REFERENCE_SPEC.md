@@ -24,7 +24,7 @@ Architecture: static HTML/CSS/ES modules, centralized wedding content, a separat
 
 ## November 7 family-and-story layout
 
-The user's eight screenshots guide the body sequence and interaction patterns. Keep the existing full-screen blue camellia cover and Korean-only controls. The body now uses an unboxed invitation poem, the supplied parent names, a groom/bride contact dialog, a January 2027 calendar with a live countdown, official venue map and transport details, gallery, account tabs, elapsed time since January 9, 2025, a ceremony summary, and a closing thank-you. The final footer reproduces the user-supplied excerpt attributed to 이수동, 「사랑가」. Reference couples, dates, bank numbers, and addresses are not reused.
+The user's eight screenshots guide the body sequence and interaction patterns. Keep the existing full-screen blue camellia cover and Korean-only controls. The body now uses an unboxed invitation poem, the supplied parent names, a groom/bride contact dialog, a January 2027 calendar with a live countdown, official venue map and transport details, gallery, account tabs, elapsed time since January 9, 2025, a ceremony summary, and a closing thank-you. The final footer reproduces the user-supplied excerpt attributed to 흔글, 〈계절〉, followed by the user's invitation message. Reference couples, dates, bank numbers, and addresses are not reused.
 
 Parents: 이철수 · 곽향숙의 아들 이지언; 정용익 · 이옥주의 딸 정다은. Per user instruction, phone and account details remain empty and can be filled in `src/data/wedding.js`. Phone/SMS controls are disabled without a number; incomplete bank records are never shown. The first-met date is measured from Seoul midnight because no time was provided.
 
