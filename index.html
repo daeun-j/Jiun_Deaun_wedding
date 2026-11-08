@@ -9,8 +9,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Gowun+Batang&family=Pinyon+Script&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="./styles.css?v=invitation-music" />
-    <script type="module" src="./src/main.js?v=original-volume"></script>
+    <link rel="stylesheet" href="./styles.css?v=naver-map" />
+    <script type="module" src="./src/main.js?v=naver-map"></script>
   </head>
   <body>
     <div class="opening" id="opening" role="dialog" aria-modal="true" aria-labelledby="opening-title">
@@ -71,9 +71,12 @@
         <div class="venue-copy reveal">
           <h3 id="venue-name"></h3><p id="venue-hall"></p><p id="venue-address"></p>
         </div>
-        <div class="venue-map"><iframe id="venue-map" title="지타워 컨벤션 위치 지도" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe></div>
+        <a class="venue-map-link" id="venue-map-link" target="_blank" rel="noopener noreferrer" aria-label="지타워 컨벤션 위치를 네이버지도에서 보기">
+          <img id="venue-map" width="1217" height="720" alt="네이버지도에 표시된 지타워 컨벤션 위치" loading="lazy" />
+          <span>지도를 누르면 네이버지도로 이동합니다 <span aria-hidden="true">↗</span></span>
+        </a>
         <div class="button-row map-actions">
-          <a class="secondary-button" id="map-link" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="#icon-map" /></svg>지도 크게 보기</a>
+          <a class="primary-button" id="map-link" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="#icon-map" /></svg>네이버지도 보기</a>
           <button class="secondary-button" id="copy-address" type="button"><svg class="icon" aria-hidden="true"><use href="#icon-copy" /></svg>주소 복사</button>
         </div>
         <div class="navigation-apps">

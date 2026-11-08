@@ -15,13 +15,14 @@ export const wedding = {
     venue: { ko: '지타워 컨벤션', en: 'G-Tower Convention' },
     hall: { ko: 'G타워 2층 그랜드볼룸', en: 'G-Tower, 2nd floor' },
     address: { ko: '서울특별시 구로구 디지털로26길 38', en: '38 Digital-ro 26-gil, Guro-gu, Seoul' },
-    mapUrl: 'https://www.google.com/maps/dir/?api=1&destination=지타워컨벤션,+서울특별시+구로구+디지털로26길+38',
-    // Links and map embed supplied by the venue's official directions page.
-    mapEmbed: 'https://www.google.com/maps/embed?pb=!1m5!3m3!1m2!1s0x357c9f8c0cabd4e9%3A0xab40b833feaee5fb!2z7KeA7YOA7JuMIOy7qOuypOyFmA!5e0!3m2!1sko!2skr!4v1785902280327!5m2!1sko!2skr',
+    // Destination coordinates and alternative map links come from the venue.
+    destination: { name: '지타워 컨벤션', longitude: 126.895539, latitude: 37.479684 },
+    mapUrl: 'https://naver.me/58NdkRJs',
+    mapPreview: './assets/naver-venue-map.png',
     maps: [
       { label: '네이버지도', mark: 'N', className: 'naver', url: 'https://naver.me/58NdkRJs' },
+      { label: '티맵', mark: 'T', className: 'tmap', app: 'tmap' },
       { label: '카카오맵', mark: 'K', className: 'kakao', url: 'https://map.kakao.com/link/to/지타워컨벤션,37.479684,126.895539' },
-      { label: '구글지도', mark: 'G', className: 'google', url: 'https://www.google.com/maps/dir/?api=1&destination=지타워컨벤션,+서울특별시+구로구+디지털로26길+38' },
     ],
   },
   invitation: {

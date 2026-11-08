@@ -1,7 +1,8 @@
-import { wedding } from './data/wedding.js?v=perched-birds';
+import { wedding } from './data/wedding.js?v=naver-map';
 import { calendarParts, daysUntil, durationParts, calendarFile } from './event-time.mjs?v=camellia-story';
 import { createBirdStory } from './bird-story.mjs?v=bird-toggle';
 import { createBackgroundMusic } from './music.mjs?v=original-volume';
+import { tmapNavigation } from './navigation.mjs?v=tmap-navigation';
 
 const $ = (selector, scope = document) => scope.querySelector(selector);
 const $$ = (selector, scope = document) => [...scope.querySelectorAll(selector)];
@@ -91,10 +92,21 @@ function renderVenue() {
   $('#venue-name').textContent = localeValue(wedding.event.venue);
   $('#venue-hall').textContent = localeValue(wedding.event.hall);
   $('#venue-address').textContent = localeValue(wedding.event.address);
-  $('#venue-map').src = wedding.event.mapEmbed;
+  const tmap = tmapNavigation(wedding.event.destination, navigator);
+  function connectTmap(link) {
+    link.href = tmap.href;
+    link.removeAttribute('target');
+    if (!tmap.mobile) link.addEventListener('click', event => {
+      event.preventDefault();
+      showToast('티맵 길안내는 휴대폰에서 이용해 주세요.');
+    });
+  }
   $('#map-link').href = wedding.event.mapUrl;
+  $('#venue-map-link').href = wedding.event.mapUrl;
+  $('#venue-map').src = wedding.event.mapPreview;
   $('#map-app-links').replaceChildren(...wedding.event.maps.map(map => {
-    const a = externalLink('', map.url, 'map-app');
+    const a = externalLink('', map.url || tmap.href, 'map-app');
+    if (map.app === 'tmap') connectTmap(a);
     const mark = element('span', map.mark, 'map-app-mark ' + map.className); mark.setAttribute('aria-hidden', 'true');
     a.append(mark, element('span', map.label)); return a;
   }));

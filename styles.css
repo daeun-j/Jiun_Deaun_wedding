@@ -128,8 +128,9 @@ body:has(dialog[open]) { overflow: hidden; }
 .venue-copy h3 { margin: 0; font: 400 23px/1.5 var(--serif); }
 .venue-copy p { margin: 4px 0; font: 14px/1.9 var(--sans); color: var(--muted); }
 .venue-copy #venue-address { margin-top: 10px; }
-.venue-map { margin-inline: calc(-1 * var(--gutter)); aspect-ratio: 1.5; background: var(--wash); }
-.venue-map iframe { display: block; border: 0; width: 100%; height: 100%; }
+.venue-map-link { display: block; margin-inline: calc(-1 * var(--gutter)); background: var(--wash); text-decoration: none; }
+.venue-map-link img { display: block; width: 100%; height: auto; }
+.venue-map-link > span { display: block; padding: 10px 15px; color: var(--muted); background: #fff8; font: 11px/1.6 var(--sans); }
 .button-row { display: flex; gap: 8px; margin-top: 18px; }
 .text-button, .primary-button, .secondary-button { display: inline-flex; align-items: center; justify-content: center; gap: 8px; border: 1px solid var(--line); min-height: 48px; padding: 12px 16px; border-radius: 9px; background: #ffffffb5; color: inherit; text-decoration: none; font: 14px/1.5 var(--serif); }
 .primary-button { background: var(--ink); color: white; border-color: var(--ink); }
@@ -142,7 +143,7 @@ button:disabled { opacity: .33; cursor: default; }
 .map-app-links { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 6px; margin-top: 17px; }
 .map-app { display: flex; justify-content: center; align-items: center; gap: 5px; min-height: 48px; padding: 8px 4px; border: 1px solid var(--line); border-radius: 8px; text-decoration: none; background: #fff9; font: 11px/1.4 var(--sans); }
 .map-app-mark { display: grid; place-items: center; width: 19px; height: 19px; border-radius: 5px; font: 600 11px var(--sans); }
-.naver { color: white; background: #03a94f; }.kakao { color: #362c18; background: #f7db44; }.google { color: #4285f4; background: white; border: 1px solid #e4e4e4; }
+.naver { color: white; background: #03a94f; }.kakao { color: #362c18; background: #f7db44; }.tmap { color: white; background: linear-gradient(135deg, #ef3caf, #7051e9 55%, #20bdcc); }
 .transport article { padding: 25px 0; border-bottom: 1px dashed var(--line); text-align: left; }
 .transport article:first-child { border-top: 1px dashed var(--line); margin-top: 28px; }
 .transport p { margin: 0; white-space: pre-line; color: var(--muted); font: 14px/1.9 var(--sans); }
@@ -272,8 +273,8 @@ body[data-birds-paused='true'] :is(.sparrow-flight, .sparrow-wing, .landing-bird
 .toast.is-visible { opacity: 1; }
 @media (max-width: 350px) {
   .hero, .section { padding-inline: 18px; }
+  .venue-map-link { margin-inline: -18px; }
   .family-introduction p { gap: 5px; }
-  .venue-map { margin-inline: -18px; }
   .map-app { flex-direction: column; }
   .contact-dialog { padding-inline: 15px; }
   .contact-row { grid-template-columns: 40px 1fr auto; }
