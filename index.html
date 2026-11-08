@@ -9,8 +9,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Gowun+Batang&family=Pinyon+Script&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="./styles.css?v=smooth-flight" />
-    <script type="module" src="./src/main.js?v=smooth-flight"></script>
+    <link rel="stylesheet" href="./styles.css?v=perched-music" />
+    <script type="module" src="./src/main.js?v=perched-music"></script>
   </head>
   <body>
     <div class="opening" id="opening" role="dialog" aria-modal="true" aria-labelledby="opening-title">
@@ -145,6 +145,15 @@
       </footer>
     </main>
 
+    <aside class="music-dock" aria-label="청첩장 음악" hidden>
+      <button type="button" class="music-toggle" id="music-toggle" aria-expanded="false" aria-controls="music-panel"><span aria-hidden="true">♫</span><span id="music-toggle-label">음악 미리듣기</span></button>
+      <section class="music-panel" id="music-panel" aria-label="음악 플레이어" hidden>
+        <div class="music-heading"><div><p class="music-title">Baby, It's Cold Outside</p><p class="music-artist">Dean Martin</p></div><button type="button" class="music-close" id="music-close" aria-label="음악 끄고 닫기">×</button></div>
+        <div class="music-frame" id="music-frame"></div>
+        <p class="music-notice" id="music-notice">30초 미리듣기</p>
+        <a class="music-link" id="music-link" href="https://open.spotify.com/track/4MrfQL4TYQXJBlZYpAHTuE" target="_blank" rel="noopener noreferrer">Spotify에서 곡 보기 ↗</a>
+      </section>
+    </aside>
     <div class="bird-journey" aria-hidden="true"><span class="traveling-bird"><span class="sparrow"></span></span></div>
 
     <dialog class="contact-dialog" id="contact-dialog" aria-labelledby="contact-dialog-title">

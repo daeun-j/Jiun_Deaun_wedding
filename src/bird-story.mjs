@@ -1,6 +1,6 @@
 import { flightFrames, FLIGHT_DURATION } from './bird-flight.mjs?v=smooth-flight';
 
-// One uninterrupted story: opening → flight → two landings → camellias in colour.
+// One uninterrupted story: opening → flight → perched pair → camellias in colour.
 // Both animation clocks pause with the page; no wall-clock timer skips the ending.
 export function createBirdStory() {
   const body = document.body;
@@ -43,9 +43,9 @@ export function createBirdStory() {
     body.dataset.birdStory = stage;
   }
 
-  function settle() {
+  function perch(next = 'settled') {
     birds.forEach(bird => bird.classList.add('is-perched'));
-    setStage('settled');
+    setStage(next);
   }
 
   function sync() {
@@ -60,11 +60,10 @@ export function createBirdStory() {
     }
     if (hidden) return;
     if (stage === 'flying' && sceneReady && branch.complete && branch.naturalWidth) {
-      if (reducedMotion.matches) settle();
-      else setStage('landing');
+      perch(reducedMotion.matches ? 'settled' : 'blooming');
       flight?.pause();
-    } else if (reducedMotion.matches && ['landing', 'blooming'].includes(stage)) {
-      settle();
+    } else if (reducedMotion.matches && stage === 'blooming') {
+      perch();
     }
   }
 
@@ -78,10 +77,7 @@ export function createBirdStory() {
   branch.addEventListener('load', sync);
 
   scene.addEventListener('animationend', event => {
-    if (stage === 'landing' && event.target.matches('.landing-bird')) {
-      event.target.classList.add('is-perched');
-      if (birds.every(bird => bird.classList.contains('is-perched'))) setStage('blooming');
-    } else if (event.target === branch && event.animationName === 'camellia-colour') {
+    if (event.target === branch && event.animationName === 'camellia-colour') {
       setStage('settled');
     }
     sync();

@@ -202,6 +202,25 @@ button:disabled { opacity: .33; cursor: default; }
 .poem-message { margin: 32px auto 0; font: clamp(12px, 3.4vw, 16px)/2.2 var(--serif); letter-spacing: -.04em; }
 .poem-signature { margin: 45px 0 0; font: 12px/1.6 var(--serif); letter-spacing: .15em; color: var(--accent); }
 
+.music-dock { position: fixed; z-index: 12; top: max(12px, env(safe-area-inset-top)); right: max(8px, calc((100vw - 550px) / 2 + 12px)); width: min(354px, calc(100vw - 16px)); pointer-events: none; }
+.music-toggle { display: flex; align-items: center; gap: 7px; margin-left: auto; min-height: 40px; padding: 7px 13px; border: 1px solid var(--line); border-radius: 28px; background: #fbf7f2f2; color: var(--ink); font: 12px/1.5 var(--serif); box-shadow: 0 2px 12px #4a63780b; pointer-events: auto; }
+.music-toggle > span:first-child { font: 19px/1 var(--serif); }
+.music-panel { margin-top: 8px; padding: 10px; border: 1px solid var(--line); border-radius: 12px; background: var(--paper); box-shadow: 0 8px 30px #20364420; pointer-events: auto; }
+.music-heading { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 10px; text-align: left; }
+.music-title { margin: 0; font: 15px/1.4 var(--latin); color: var(--ink); }
+.music-artist { margin: 3px 0 0; font: 11px/1.5 var(--sans); color: var(--muted); }
+.music-close { width: 36px; height: 36px; flex-shrink: 0; border: 0; border-radius: 50%; background: transparent; font-size: 26px; }
+.music-frame { min-height: 54px; }
+.music-frame iframe { display: block; width: 100%; height: 152px; border: 0; border-radius: 8px; }
+.music-frame audio { display: block; width: 100%; height: 54px; }
+.music-notice { margin: 9px 0 0; text-align: center; font: 11px/1.6 var(--serif); color: var(--muted); }
+.music-link { display: block; margin-top: 10px; text-align: center; font: 10px/1.6 var(--serif); color: var(--muted); text-underline-offset: 3px; }
+body:has(dialog[open]) .music-dock { visibility: hidden; }
+@media (max-width: 310px) {
+  .music-dock { width: 100%; right: 0; }
+  .music-panel { padding: 8px; }
+}
+
 /* Minhwa-inspired sparrows. Every decorative layer is inert to touch and focus. */
 .bird-journey { --flight-width: min(100vw, 550px); position: fixed; inset: 0; margin-inline: auto; width: var(--flight-width); height: 100dvh; overflow: hidden; pointer-events: none; z-index: 5; visibility: hidden; }
 .traveling-bird { display: block; position: absolute; top: 0; left: 0; width: 64px; height: 64px; opacity: 0; }
@@ -215,33 +234,24 @@ button:disabled { opacity: .33; cursor: default; }
 .sparrow-wing-near { z-index: 2; }
 .camellia-story { position: relative; width: min(100%, 420px); aspect-ratio: 1.45; margin: 0 auto; pointer-events: none; }
 .camellia-branch { position: absolute; bottom: 0; left: 0; width: 100%; height: auto; filter: grayscale(1); opacity: .5; }
-.landing-bird { display: block; position: absolute; width: 23%; aspect-ratio: 1; opacity: 0; }
+.landing-bird { display: block; position: absolute; width: 23%; aspect-ratio: 1; opacity: 0; transition: opacity .18s ease-out; }
 .landing-bird-first { left: 13%; top: 30%; }
 .landing-bird-second { left: 58%; top: 37%; }
 .landing-bird-second .sparrow { scale: -1 1; }
 body[data-bird-story='flying'] .bird-journey { visibility: visible; }
 body[data-bird-story='flying'] .traveling-bird { opacity: .85; }
-body:is([data-bird-story='landing'], [data-bird-story='blooming'], [data-bird-story='settled']) .landing-bird { opacity: 1; }
+body:is([data-bird-story='blooming'], [data-bird-story='settled']) .landing-bird { opacity: 1; }
 body[data-bird-story='settled'] .camellia-branch { filter: grayscale(0); opacity: 1; }
 /* Also hide synchronously when a native dialog opens, before the observer runs. */
 body[data-birds-hidden='true'] :is(.bird-journey, .landing-bird), body:has(dialog[open]) :is(.bird-journey, .landing-bird) { visibility: hidden; }
 body[data-birds-paused='true'] :is(.sparrow-flight, .sparrow-wing, .landing-bird, .camellia-branch) { animation-play-state: paused !important; }
 
 @media (prefers-reduced-motion: no-preference) {
-  body[data-bird-story='flying'] .traveling-bird .sparrow-flight,
-  body[data-bird-story='landing'] .landing-bird:not(.is-perched) .sparrow-flight { opacity: 1; animation: sparrow-lift .64s ease-in-out infinite; }
-  body[data-bird-story='flying'] .traveling-bird .sparrow::after,
-  body[data-bird-story='landing'] .landing-bird:not(.is-perched) .sparrow::after { opacity: 0; }
+  body[data-bird-story='flying'] .traveling-bird .sparrow-flight { opacity: 1; animation: sparrow-lift .64s ease-in-out infinite; }
+  body[data-bird-story='flying'] .traveling-bird .sparrow::after { opacity: 0; }
   body[data-bird-story='flying'] .traveling-bird .sparrow-wing { animation: sparrow-flap-and-glide 6.4s cubic-bezier(.45,0,.55,1) infinite; }
-  body[data-bird-story='landing'] .landing-bird:not(.is-perched) .sparrow-wing { animation: sparrow-flap .46s cubic-bezier(.45,0,.55,1) infinite; }
-  body:is([data-bird-story='flying'], [data-bird-story='landing']) .sparrow-wing-far { animation-delay: -.045s; }
-  body[data-bird-story='landing'] .landing-bird-first { animation: sparrow-arrive-left 1.3s cubic-bezier(.25,.5,.3,1) both; }
-  body[data-bird-story='landing'] .landing-bird-second { animation: sparrow-arrive-right 1.5s .2s cubic-bezier(.25,.5,.3,1) both; }
-  body[data-bird-story='blooming'] .camellia-branch { animation: camellia-colour 1.3s ease-in-out both; }
-  @keyframes sparrow-flap {
-    0%, 100% { transform: rotate(-9deg) scale(var(--wing-scale)) scaleY(.92); }
-    50% { transform: rotate(12deg) scale(var(--wing-scale)) scaleY(-.64); }
-  }
+  body[data-bird-story='flying'] .sparrow-wing-far { animation-delay: -.045s; }
+  body[data-bird-story='blooming'] .camellia-branch { animation: camellia-colour 3s ease-in-out both; }
   @keyframes sparrow-flap-and-glide {
     0%, 10%, 20%, 30%, 40%, 50%, 60%, 70%, 80%, 100% { transform: rotate(-9deg) scale(var(--wing-scale)) scaleY(.92); }
     5%, 15%, 25%, 35%, 45%, 55%, 65%, 75% { transform: rotate(12deg) scale(var(--wing-scale)) scaleY(-.64); }
@@ -250,22 +260,6 @@ body[data-birds-paused='true'] :is(.sparrow-flight, .sparrow-wing, .landing-bird
   @keyframes sparrow-lift {
     0%, 100% { translate: 0 -.6px; }
     50% { translate: 0 .6px; }
-  }
-  @keyframes sparrow-arrive-left {
-    0% { transform: translate(-160%, -155%) rotate(-12deg) scale(.8); opacity: 0; }
-    15% { opacity: 1; }
-    48% { transform: translate(-60%, -85%) rotate(6deg) scale(.94); }
-    78% { transform: translate(-9%, -27%) rotate(-5deg); }
-    94% { transform: translate(0, -3%) rotate(2deg); }
-    100% { transform: none; opacity: 1; }
-  }
-  @keyframes sparrow-arrive-right {
-    0% { transform: translate(155%, -150%) rotate(12deg) scale(.8); opacity: 0; }
-    15% { opacity: 1; }
-    46% { transform: translate(75%, -92%) rotate(-5deg) scale(.94); }
-    80% { transform: translate(12%, -25%) rotate(4deg); }
-    94% { transform: translate(0, -3%) rotate(-2deg); }
-    100% { transform: none; opacity: 1; }
   }
   @keyframes camellia-colour {
     from { filter: grayscale(1); opacity: .5; }
