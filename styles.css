@@ -140,6 +140,13 @@ button:disabled { opacity: .33; cursor: default; }
 .transport article { padding: 25px 0; border-bottom: 1px dashed var(--line); text-align: left; }
 .transport article:first-child { border-top: 1px dashed var(--line); margin-top: 28px; }
 .transport p { margin: 0; white-space: pre-line; color: var(--muted); font: 14px/1.9 var(--sans); }
+.subway-stop + .subway-stop { margin-top: 22px; }
+.transport .subway-station { display: flex; align-items: center; gap: 7px; color: var(--ink); }
+.subway-lines { display: inline-flex; align-items: center; gap: 4px; flex-shrink: 0; }
+.subway-lines img { display: block; width: 24px; height: 24px; border-radius: 50%; }
+.subway-station-name { min-width: 0; }
+.transport .subway-directions { margin-top: 6px; }
+.transport .subway-note { margin-top: 22px; }
 .venue-source { display: inline-block; padding: 12px; margin-top: 8px; font: 11px/1.5 var(--sans); color: var(--muted); }
 .gallery-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 6px; margin-top: 28px; }
 .gallery-grid button { position: relative; border: 0; padding: 0; background: var(--linen); overflow: hidden; cursor: zoom-in; aspect-ratio: var(--album-ratio); }

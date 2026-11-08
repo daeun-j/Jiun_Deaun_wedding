@@ -1,4 +1,4 @@
-import { wedding } from './data/wedding.js?v=camellia-album18';
+import { wedding } from './data/wedding.js?v=camellia-subway';
 import { calendarParts, daysUntil, durationParts, calendarFile } from './event-time.mjs?v=camellia-story';
 
 const $ = (selector, scope = document) => scope.querySelector(selector);
@@ -97,7 +97,22 @@ function renderVenue() {
     a.append(mark, element('span', map.label)); return a;
   }));
   $('#transport-list').replaceChildren(...wedding.transport.map(item => {
-    const row = element('article'); row.append(element('h3', localeValue(item.title)), element('p', localeValue(item.detail))); return row;
+    const row = element('article'); row.append(element('h3', localeValue(item.title)));
+    for (const stop of item.stops || []) {
+      const block = element('div', '', 'subway-stop');
+      const station = element('p', '', 'subway-station');
+      const badges = element('span', '', 'subway-lines');
+      for (const line of stop.lines) {
+        const img = element('img'); img.src = `./assets/subway-line-${line}.png`;
+        img.alt = `${line}호선`; img.width = 24; img.height = 24;
+        badges.append(img);
+      }
+      station.append(badges, element('span', stop.station, 'subway-station-name'));
+      block.append(station, element('p', stop.direction, 'subway-directions'));
+      row.append(block);
+    }
+    row.append(element('p', localeValue(item.detail), item.stops ? 'subway-note' : ''));
+    return row;
   }));
 }
 function renderContacts() {

@@ -28,6 +28,7 @@
 - **마지막 글귀:** 사용자가 제공한 흔글 〈계절〉 구절과 뒤이은 초대 문장을 `index.html`의 마지막 `poem-ending`에 배치했습니다.
 - **공유:** 네이티브 공유가 지원되지 않으면 링크 복사를 사용합니다. 전용 카카오톡 공유 버튼은 미설정입니다. 추가하려면 소유한 Kakao Developers 앱의 JavaScript 키와 배포 도메인 등록이 필요합니다. [공식 가이드](https://developers.kakao.com/docs/ko/kakaotalk-share/js-link)
 - **지도:** 예식장 공식 페이지에 포함된 구글 지도를 표시하고 공식 네이버·카카오 링크와 구글 길찾기를 제공합니다. 앱 설치 없이도 열 수 있는 웹 링크를 사용합니다.
+- **지하철 아이콘:** 사용자가 첨부한 이미지에서 자른 `assets/subway-line-1.png`, `assets/subway-line-7.png`, `assets/subway-line-2.png`를 사용합니다. 가산디지털단지역에는 1·7호선, 구로디지털단지역에는 2호선을 표시하며 `transport`의 `stops`에서 역·출구·셔틀 안내를 수정할 수 있습니다.
 - **꽃 장식:** 제공된 참고 이미지의 분위기를 바탕으로 Imagegen으로 새로 만든 동백꽃 선화입니다. 표지는 `assets/camellia-frame.webp`, 작은 장식은 `assets/camellia-mark.svg`입니다. 생성 사양은 `assets/camellia-frame.prompt.txt`에 있습니다.
 - **색상·서체:** `styles.css`의 `:root`에서 아이보리·더스티 블루 팔레트를 관리합니다. Pinyon Script 이름, Cormorant Garamond 영문, Gowun Batang 한글을 사용합니다.
 - **이전 디자인 자산:** 사용하지 않는 설경은 [Mariana Buras / Unsplash](https://unsplash.com/photos/a-snow-covered-pine-tree-in-the-snow-opLzqpzcif8)의 사진입니다. 현재 페이지에서는 로드하지 않습니다.
