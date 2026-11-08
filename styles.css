@@ -176,14 +176,6 @@ button:disabled { opacity: .33; cursor: default; }
 .contact-actions a, .contact-actions button { display: grid; place-items: center; width: 44px; height: 40px; border: 1px solid var(--line); border-radius: 30px; background: transparent; color: inherit; }
 .contact-actions .icon { width: 17px; height: 17px; }
 .contact-notice { margin: 15px 0 0; text-align: center; font: 12px/1.7 var(--sans); color: var(--muted); }
-.notice, .guestbook-form { max-width: 370px; margin: 20px auto 0; text-align: left; font: 13px/1.8 var(--sans); }
-.notice strong { display: block; color: var(--accent); }
-.guestbook-preview { max-width: 370px; margin: 16px auto 0; border-block: 1px solid var(--line); }
-.guestbook-preview summary { padding: 13px 0; color: var(--accent); font: 14px/1.5 var(--sans); cursor: pointer; }
-.guestbook-preview .guestbook-form { margin: 0 auto 18px; }
-.guestbook-form label { display: block; margin-bottom: 12px; }
-.guestbook-form input, .guestbook-form textarea { display: block; width: 100%; margin-top: 4px; padding: 10px; border: 1px solid var(--line); background: var(--paper); }
-.guestbook-form button { width: 100%; }
 .since-date { color: var(--muted); font: 13px/1.6 var(--serif); margin: 15px 0; }
 .save-date { margin: 60px auto 45px; }
 .save-date img { opacity: .8; }

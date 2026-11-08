@@ -9,8 +9,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Gowun+Batang&family=Pinyon+Script&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="./styles.css?v=camellia-story" />
-    <script type="module" src="./src/main.js?v=camellia-story"></script>
+    <link rel="stylesheet" href="./styles.css?v=camellia-clean" />
+    <script type="module" src="./src/main.js?v=camellia-clean"></script>
   </head>
   <body>
     <div class="opening" id="opening" role="dialog" aria-modal="true" aria-labelledby="opening-title">
@@ -36,7 +36,6 @@
     <main class="invitation" id="invitation" inert>
       <section class="hero" id="home">
         <div class="letter-ornament" aria-hidden="true"><img src="./assets/camellia-mark.svg" width="48" height="54" alt="" /></div>
-        <p class="section-label">초대합니다</p>
         <h1 class="hero-title" tabindex="-1">소중한 분들을 초대합니다</h1>
         <p class="body-copy invitation-poem" id="invitation-message"></p>
         <div class="family-introduction" id="family-introduction"></div>
@@ -44,7 +43,6 @@
       </section>
 
       <section class="section date-section" id="date">
-        <p class="section-label">함께할 날</p>
         <h2 class="ceremony-date" id="ceremony-date"></h2>
         <p class="ceremony-time" id="ceremony-time"></p>
         <div class="date-card reveal">
@@ -62,7 +60,6 @@
       </section>
 
       <section class="section venue-section" id="venue">
-        <p class="section-label">예식 장소</p>
         <h2 class="section-title">오시는 길</h2>
         <div class="venue-copy reveal">
           <h3 id="venue-name"></h3><p id="venue-hall"></p><p id="venue-address"></p>
@@ -83,7 +80,6 @@
       </section>
 
       <section class="section gallery-section" id="gallery">
-        <p class="section-label">사진첩</p>
         <h2 class="section-title">두 사람의 순간</h2>
         <p class="section-note" id="gallery-note"></p>
         <div class="gallery-grid reveal" id="gallery-grid"></div>
@@ -109,22 +105,7 @@
         </div>
       </section>
 
-      <section class="section guestbook-section" id="guestbook">
-        <p class="section-label">방명록</p>
-        <h2 class="section-title">축하의 마음</h2>
-        <div class="notice"><strong>미리보기</strong><span>지금은 미리보기예요. 메시지는 저장되지 않습니다.</span></div>
-        <details class="guestbook-preview">
-          <summary>방명록 양식 보기</summary>
-          <form class="guestbook-form" id="guestbook-form">
-            <label>이름<input type="text" maxlength="30" autocomplete="name" disabled /></label>
-            <label>메시지<textarea maxlength="300" rows="4" disabled></textarea></label>
-            <button class="primary-button" type="submit" disabled>미리보기 · 작성 불가</button>
-          </form>
-        </details>
-      </section>
-
       <section class="section our-time" id="our-time" hidden>
-        <p class="section-label">우리의 시작</p>
         <h2 class="section-title">함께 걸어온 시간</h2>
         <p class="since-date" id="since-date"></p>
         <div class="time-counter together-counter" id="together-counter" aria-label="처음 만난 날부터 함께한 시간">
@@ -135,7 +116,7 @@
         </div>
         <div class="save-date">
           <img src="./assets/camellia-mark.svg" width="64" height="70" alt="" />
-          <p>우리의 새로운 시작을<br />함께해 주세요</p>
+          <p>새로운 시작을<br />함께해 주세요</p>
         </div>
         <dl class="wedding-summary">
           <div><dt>날짜</dt><dd id="summary-date"></dd></div>
@@ -146,7 +127,7 @@
 
       <section class="section closing">
         <p class="section-label">감사한 마음을 담아</p>
-        <h2 class="closing-title">우리의 새로운 시작을<br />함께 축하해 주세요.</h2>
+        <h2 class="closing-title">새로운 시작을<br />함께 축하해 주세요.</h2>
         <p class="body-copy">여러분의 사랑과 축복이<br />큰 힘이 됩니다.</p>
         <div class="share-actions">
           <button class="primary-button" id="share-button" type="button">초대장 공유하기</button>

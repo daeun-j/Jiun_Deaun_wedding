@@ -32,13 +32,4 @@
 - **색상·서체:** `styles.css`의 `:root`에서 아이보리·더스티 블루 팔레트를 관리합니다. Pinyon Script 이름, Cormorant Garamond 영문, Gowun Batang 한글을 사용합니다.
 - **이전 디자인 자산:** 사용하지 않는 설경은 [Mariana Buras / Unsplash](https://unsplash.com/photos/a-snow-covered-pine-tree-in-the-snow-opLzqpzcif8)의 사진입니다. 현재 페이지에서는 로드하지 않습니다.
 
-## 방명록
-
-현재는 **비활성 미리보기**입니다. 이름이나 메시지를 전송·저장하지 않으며 관리할 데이터도 없습니다. 저장소 정책만으로 정적 사이트에 방명록이 생기지는 않습니다.
-
-| 선택지 | 운영 방식과 무료 사용 시 제약 | 설정할 보호 장치 |
-| --- | --- | --- |
-| [Supabase](https://supabase.com/docs/guides/platform/billing-on-supabase) | SQL 테이블로 승인·삭제 상태를 관리하기 쉽습니다. 무료 프로젝트는 비활동 시 [일시 중지](https://supabase.com/docs/guides/platform/free-project-pausing)될 수 있습니다. | 승인된 글만 읽는 RLS 정책, 작성 요청의 서버 측 검증·속도 제한, 운영자 전용 삭제 |
-| [Firebase Firestore](https://firebase.google.com/docs/firestore/quotas) | 서버 운영 없이 문서 목록을 제공하지만 무료 읽기·쓰기 일일 한도가 있어 목록을 페이지로 나눠야 합니다. | Security Rules, App Check, 운영자 인증, 클라이언트의 임의 수정·삭제 차단 |
-
-운영을 원하면 제공자, 누가 글을 볼지, 승인할 사람, 보관 기간을 먼저 정합니다. 공개 쓰기 전에 입력 제한, 도배 방지, 삭제 경로를 검증하세요. 비밀번호 평문이나 관리자 키를 프런트엔드에 넣지 마세요. 이 설정이 끝나기 전에는 양식을 활성화하지 않습니다.
+방명록은 요청에 따라 제거했습니다. 초대 글·날짜·장소·사진첩·함께한 시간 위의 작은 제목도 표시하지 않습니다.

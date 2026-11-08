@@ -61,5 +61,4 @@ export const wedding = {
     { src: './assets/gallery-06.svg', alt: { ko: '커플 사진 자리 6', en: 'Couple photo placeholder 6' } },
   ],
   movieUrl: '',
-  guestbook: { provider: null },
 };

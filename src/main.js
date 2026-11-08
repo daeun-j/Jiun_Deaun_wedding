@@ -1,4 +1,4 @@
-import { wedding } from './data/wedding.js?v=camellia-story';
+import { wedding } from './data/wedding.js?v=camellia-clean';
 import { calendarParts, daysUntil, durationParts, calendarFile } from './event-time.mjs?v=camellia-story';
 
 const $ = (selector, scope = document) => scope.querySelector(selector);
@@ -80,7 +80,7 @@ function updateCounters() {
 }
 function renderStory() {
   $('#our-time').hidden = !firstMet || !Number.isFinite(firstMet.getTime());
-  if (firstMet) $('#since-date').textContent = numericDate(firstMet) + '부터, 우리';
+  if (firstMet) $('#since-date').textContent = numericDate(firstMet) + '부터';
   $('#summary-date').textContent = formatDate(start);
   $('#summary-time').textContent = formatTime(start);
   $('#summary-place').append(element('strong', localeValue(wedding.event.venue)), element('span', localeValue(wedding.event.address)));
