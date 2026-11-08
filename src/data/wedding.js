@@ -16,7 +16,6 @@ export const wedding = {
     hall: { ko: 'G타워 2층 그랜드볼룸', en: 'G-Tower, 2nd floor' },
     address: { ko: '서울특별시 구로구 디지털로26길 38', en: '38 Digital-ro 26-gil, Guro-gu, Seoul' },
     mapUrl: 'https://www.google.com/maps/dir/?api=1&destination=지타워컨벤션,+서울특별시+구로구+디지털로26길+38',
-    phone: '02-432-9000',
     // Links and map embed supplied by the venue's official directions page.
     mapEmbed: 'https://www.google.com/maps/embed?pb=!1m5!3m3!1m2!1s0x357c9f8c0cabd4e9%3A0xab40b833feaee5fb!2z7KeA7YOA7JuMIOy7qOuypOyFmA!5e0!3m2!1sko!2skr!4v1785902280327!5m2!1sko!2skr',
     maps: [
@@ -53,12 +52,25 @@ export const wedding = {
     { side: 'bride', holder: '이옥주', bank: '', number: '', kakaoPayUrl: '' },
   ],
   photos: [
+    // Eighteen editable photo slots. Replace these placeholders with your photos.
     { src: './assets/gallery-01.svg', alt: { ko: '커플 사진 자리 1', en: 'Couple photo placeholder 1' } },
     { src: './assets/gallery-02.svg', alt: { ko: '커플 사진 자리 2', en: 'Couple photo placeholder 2' } },
     { src: './assets/gallery-03.svg', alt: { ko: '커플 사진 자리 3', en: 'Couple photo placeholder 3' } },
     { src: './assets/gallery-04.svg', alt: { ko: '커플 사진 자리 4', en: 'Couple photo placeholder 4' } },
     { src: './assets/gallery-05.svg', alt: { ko: '커플 사진 자리 5', en: 'Couple photo placeholder 5' } },
     { src: './assets/gallery-06.svg', alt: { ko: '커플 사진 자리 6', en: 'Couple photo placeholder 6' } },
+    { src: './assets/gallery-01.svg', alt: { ko: '커플 사진 자리 7' } },
+    { src: './assets/gallery-02.svg', alt: { ko: '커플 사진 자리 8' } },
+    { src: './assets/gallery-03.svg', alt: { ko: '커플 사진 자리 9' } },
+    { src: './assets/gallery-04.svg', alt: { ko: '커플 사진 자리 10' } },
+    { src: './assets/gallery-05.svg', alt: { ko: '커플 사진 자리 11' } },
+    { src: './assets/gallery-06.svg', alt: { ko: '커플 사진 자리 12' } },
+    { src: './assets/gallery-01.svg', alt: { ko: '커플 사진 자리 13' } },
+    { src: './assets/gallery-02.svg', alt: { ko: '커플 사진 자리 14' } },
+    { src: './assets/gallery-03.svg', alt: { ko: '커플 사진 자리 15' } },
+    { src: './assets/gallery-04.svg', alt: { ko: '커플 사진 자리 16' } },
+    { src: './assets/gallery-05.svg', alt: { ko: '커플 사진 자리 17' } },
+    { src: './assets/gallery-06.svg', alt: { ko: '커플 사진 자리 18' } },
   ],
   movieUrl: '',
 };

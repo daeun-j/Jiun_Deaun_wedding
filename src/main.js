@@ -1,4 +1,4 @@
-import { wedding } from './data/wedding.js?v=camellia-clean';
+import { wedding } from './data/wedding.js?v=camellia-album18';
 import { calendarParts, daysUntil, durationParts, calendarFile } from './event-time.mjs?v=camellia-story';
 
 const $ = (selector, scope = document) => scope.querySelector(selector);
@@ -37,9 +37,9 @@ function renderCover() {
   $('.cover-sheet').classList.add('has-couple-names');
   $('#opening-title').replaceChildren(element('span', names[0]), element('span', '&', 'name-ampersand'), element('span', names[1]));
   $('.cover-names').textContent = '우리, 결혼합니다.';
-  $('.opening-weekday').textContent = new Intl.DateTimeFormat('ko-KR', {weekday:'long',timeZone:wedding.event.timezone}).format(start);
   $('.opening-numeric-date').textContent = numericDate(start).replaceAll('.', ' · ');
-  $('.opening-time').textContent = formatTime(start);
+  const weekday = new Intl.DateTimeFormat('ko-KR', {weekday:'long',timeZone:wedding.event.timezone}).format(start);
+  $('.opening-time').textContent = weekday + ' ' + formatTime(start);
   $('.opening-venue').textContent = localeValue(wedding.event.venue);
 }
 function renderIntroduction() {
@@ -89,8 +89,6 @@ function renderVenue() {
   $('#venue-name').textContent = localeValue(wedding.event.venue);
   $('#venue-hall').textContent = localeValue(wedding.event.hall);
   $('#venue-address').textContent = localeValue(wedding.event.address);
-  $('#venue-phone').textContent = '예식장 문의 ' + wedding.event.phone;
-  $('#venue-phone').href = 'tel:' + phoneNumber(wedding.event.phone);
   $('#venue-map').src = wedding.event.mapEmbed;
   $('#map-link').href = wedding.event.mapUrl;
   $('#map-app-links').replaceChildren(...wedding.event.maps.map(map => {
@@ -156,8 +154,6 @@ function selectAccountSide(side, focus = false) {
 }
 function renderGallery() {
   $('#gallery').hidden = !wedding.photos.length;
-  const samples = wedding.photos.every(photo => photo.src.startsWith('./assets/gallery-') && photo.src.endsWith('.svg'));
-  $('#gallery-note').textContent = samples ? '사진첩 미리보기 · 샘플 이미지' : '사진을 누르면 크게 볼 수 있어요';
   $('#gallery-grid').replaceChildren(...wedding.photos.map((photo, index) => {
     const button = element('button'), img = element('img'); button.type = 'button'; button.dataset.photo = index;
     button.setAttribute('aria-label', localeValue(photo.alt) || '사진 보기 ' + (index + 1));
