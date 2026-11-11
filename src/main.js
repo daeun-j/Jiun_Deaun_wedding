@@ -1,7 +1,7 @@
 import { wedding } from './data/wedding.js?v=naver-map';
 import { calendarParts, daysUntil, durationParts, calendarFile } from './event-time.mjs?v=camellia-story';
 import { createBirdStory } from './bird-story.mjs?v=bird-toggle';
-import { createBackgroundMusic } from './music.mjs?v=quarter-volume';
+import { createBackgroundMusic } from './music.mjs?v=volume-15';
 import { tmapNavigation } from './navigation.mjs?v=tmap-navigation';
 
 const $ = (selector, scope = document) => scope.querySelector(selector);
