@@ -10,6 +10,8 @@ export function createBackgroundMusic({ audio, button, label, page = document, p
   let wanted = preferences.get() !== 'off';
   let pending = false;
   let attempt = 0;
+  // The playback asset is already attenuated to 50%, including on iOS.
+  // Keep the native volume unchanged so desktop playback is not halved again.
   audio.loop = true;
 
   function render() {

@@ -40,8 +40,8 @@ The user's two minhwa references inform new, transparent hand-painted sparrow an
 
 The traveling sparrow is a 64px button: tap/click or press Enter/Space to pause its position and wings, then activate it again to resume. Its pause state persists through photo dialogs and tab switches, but does not block the final flower reveal. Only the traveling button accepts pointer input; its painted parts and the final perched pair remain decorative and hidden from assistive technology. Photo/contact dialogs, external-link handoffs, tab/app switches and full-screen media hide the birds and pause their animation clocks. Leaving the ending out of view pauses its sequence; returning resumes it. Reduced motion omits the flight and shows the finished illustration when the ending enters view. Keep the existing 18-photo viewer, transport information and poem untouched.
 
-## Music, November 8
+## Music, November 10
 
-Preserve the supplied audio bytes and use the browser's default media volume. Do not apply gain, normalization, or a custom playback volume.
+Preserve the supplied audio bytes in `assets/itcoldoutside.m4a`. Play `assets/itcoldoutside-half-volume.m4a`, a separate AAC copy attenuated to 0.5 amplitude (approximately −6.02 dB). Apply the reduction to the playback asset so iOS also receives quieter audio; do not apply a second media-element volume reduction, amplification, or normalization. Preserve the track's duration, stereo channels, and 48 kHz sample rate.
 
 Use the user-provided `itcoldoutside.m4a` as a same-origin, looping audio asset. Attempt audible playback on the first cover before the invitation is opened; browsers may require a user gesture, so retry on the first click/tap or Enter/Space. Show a small Korean music on/off control on the cover and keep it throughout the invitation. Preserve playback position when opening the cover. Remember an explicit off preference, and never let an unrelated tap restart music the guest turned off. Pause while the document is hidden; resume on return only if still wanted. Do not load Spotify/YouTube players or use the earlier generated waltz draft.
