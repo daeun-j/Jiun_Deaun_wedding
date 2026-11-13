@@ -1,5 +1,5 @@
 import { wedding } from './data/wedding.js?v=invitation-copy';
-import { calendarParts, daysUntil, durationParts } from './event-time.mjs?v=camellia-story';
+import { calendarParts, durationParts } from './event-time.mjs?v=camellia-story';
 import { createBirdStory } from './bird-story.mjs?v=bird-toggle';
 import { createBackgroundMusic } from './music.mjs?v=volume-15';
 import { tmapNavigation } from './navigation.mjs?v=tmap-navigation';
@@ -76,8 +76,6 @@ function fillCounter(id, parts) {
 function updateCounters() {
   const now = new Date();
   fillCounter('#wedding-counter', durationParts(now, start));
-  const days = daysUntil(start, now, wedding.event.timezone);
-  $('#countdown').textContent = days < 0 ? '함께해 주셔서 감사합니다.' : days === 0 ? '오늘, 저희 결혼합니다.' : `지언, 다은의 결혼식이 ${days}일 남았습니다.`;
 }
 function renderVenue() {
   $('#venue-name').textContent = localeValue(wedding.event.venue);

@@ -57,3 +57,5 @@ The second invitation stanza reads “하루하루 마음이 깊어진 끝에 / 
 Photo viewer refinement: fit the whole photo within the viewport without cropping. Show previous/next arrows briefly on opening or changing a photo, then fade them out after 1.8 seconds over 0.7 seconds. Touch/pointer interaction reveals them again; keyboard focus keeps a navigation button visible. Keep close, swipe, and keyboard navigation available.
 
 Photo viewer background: fill the surround with a stretched, blurred copy of the current photo so its edge colours extend into the unused space. Preserve the original colours without an ivory wash or blue tint; use neutral translucent glass surfaces for the controls. Keep the foreground photo sharp and uncropped, and update the background with every photo change.
+
+Keep the calendar and numeric days/hours/minutes/seconds countdown. Remove the sentence underneath that says how many days remain until Jiun and Daeun’s wedding, including its wedding-day and post-wedding variants.

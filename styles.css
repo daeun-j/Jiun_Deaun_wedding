@@ -123,7 +123,6 @@ body:has(dialog[open]) { overflow: hidden; }
 .time-counter span { font: 500 clamp(30px, 8vw, 40px)/1.2 var(--latin); }
 .time-counter small { font: 10px/1.5 var(--serif); color: var(--muted); margin-top: 5px; }
 .time-counter b { font: 16px/2.3 var(--latin); color: var(--petal-blue); }
-.countdown { font: 14px/1.8 var(--serif); margin: 25px 0 0; }
 .venue-copy { margin: 32px auto 27px; }
 .venue-copy h3 { margin: 0; font: 400 23px/1.5 var(--serif); }
 .venue-copy p { margin: 4px 0; font: 14px/1.9 var(--sans); color: var(--muted); }
