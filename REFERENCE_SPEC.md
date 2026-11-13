@@ -24,13 +24,13 @@ Architecture: static HTML/CSS/ES modules, centralized wedding content, a separat
 
 ## November 7 family-and-story layout
 
-The user's eight screenshots guide the body sequence and interaction patterns. Keep the existing full-screen blue camellia cover and Korean-only controls. The body now uses an unboxed invitation poem, the supplied parent names, a groom/bride contact dialog, a January 2027 calendar with a live countdown, official venue map and transport details, gallery, account tabs, and a closing invitation. The final footer reproduces the user-supplied excerpt attributed to 흔글, 〈계절〉, followed by the user's invitation message. Reference couples, dates, bank numbers, and addresses are not reused.
+The user's eight screenshots guide the body sequence and interaction patterns. Keep the existing full-screen blue camellia cover and Korean-only controls. The body now uses an unboxed invitation poem, the supplied parent names, a groom/bride contact dialog, a January 2027 calendar with a live countdown, official venue map and transport details, gallery, and account tabs before the final poem. The final footer reproduces the user-supplied excerpt attributed to 흔글, 〈계절〉, followed by the user's invitation message. Reference couples, dates, bank numbers, and addresses are not reused.
 
 Parents: 이철수 · 곽향숙의 아들 이지언; 정용익 · 이옥주의 딸 정다은. Per user instruction, phone and account details remain empty and can be filled in `src/data/wedding.js`. Phone/SMS controls are disabled without a number; incomplete bank records are never shown. The elapsed-time section has been removed at the user’s request.
 
 Venue map, phone, hall and transit details were checked against https://www.g-towerconvention.kr/reservation/ on November 7, 2026. Its official map targets are https://naver.me/58NdkRJs and https://map.kakao.com/link/to/지타워컨벤션,37.479684,126.895539. The user's latest choice is Naver for the displayed map, with TMAP retained as a directions option. Use the Naver place preview captured on November 8, preserving its NAVER attribution and scale. The preview and primary map action open the official Naver link, verified as place 1090437805, 지타워 컨벤션. Keep Naver, TMAP and Kakao choices; no Google Maps embed or links. TMAP links to the installed mobile app with the venue coordinates. Desktop guests receive a short mobile-use notice. Native iOS/Android app handoff requires validation on a phone.
 
-Latest copy cleanup: remove the guestbook and the small labels above the invitation, calendar, venue, gallery and elapsed-time sections. The closing heading reads “새로운 시작을 함께 축하해 주세요.”
+Latest copy cleanup: remove the guestbook and the small labels above the invitation, calendar, venue, gallery and elapsed-time sections. The separate closing invitation section has been removed.
 
 Cover appointment: date, “토요일 오전 11:00”, venue; no separate weekday line. Remove the venue phone and album preview note. Keep the transport source link at https://www.g-towerconvention.kr/reservation/.
 
@@ -52,7 +52,7 @@ Use the user-provided `itcoldoutside.m4a` as a same-origin, looping audio asset.
 
 ## Invitation copy cleanup, November 12
 
-The second invitation stanza reads “하루하루 마음이 깊어진 끝에 / 앞으로의 행복을 기대하려고 합니다. / 저희의 설레는 시작에 / 소중한 분의 따뜻한 축복을 기다립니다.” Keep each phrase on its own line. Remove the visible gallery heading, the entire elapsed-time section (including its event summary), and the closing section’s small label and supporting sentence. Keep the closing invitation heading, sharing/calendar buttons, final poem, and the 18-photo 3-column gallery.
+The second invitation stanza reads “하루하루 마음이 깊어진 끝에 / 앞으로의 행복을 기대하려고 합니다. / 저희의 설레는 시작에 / 소중한 분의 따뜻한 축복을 기다립니다.” Keep each phrase on its own line. Remove the visible gallery heading, the entire elapsed-time section (including its event summary), and the closing section’s small label and supporting sentence. Remove the entire separate closing invitation section, including its sharing, link-copy and calendar buttons. Keep the final poem and the 18-photo 3-column gallery; the account section now leads directly into the poem.
 
 Photo viewer refinement: fit the whole photo within the viewport without cropping. Show previous/next arrows briefly on opening or changing a photo, then fade them out after 1.8 seconds over 0.7 seconds. Touch/pointer interaction reveals them again; keyboard focus keeps a navigation button visible. Keep close, swipe, and keyboard navigation available.
 

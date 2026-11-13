@@ -1,5 +1,5 @@
 import { wedding } from './data/wedding.js?v=invitation-copy';
-import { calendarParts, daysUntil, durationParts, calendarFile } from './event-time.mjs?v=camellia-story';
+import { calendarParts, daysUntil, durationParts } from './event-time.mjs?v=camellia-story';
 import { createBirdStory } from './bird-story.mjs?v=bird-toggle';
 import { createBackgroundMusic } from './music.mjs?v=volume-15';
 import { tmapNavigation } from './navigation.mjs?v=tmap-navigation';
@@ -223,7 +223,6 @@ function openPhoto(index) {
   if (!$('#lightbox').open) $('#lightbox').showModal();
   revealPhotoNavigation();
 }
-function shareUrl() { return location.origin + location.pathname; }
 async function copyText(text, success) {
   try { await navigator.clipboard.writeText(text); showToast(success); } catch { showToast('복사하지 못했어요. 다시 시도해 주세요.'); }
 }
@@ -277,17 +276,6 @@ $('#lightbox').addEventListener('click', e => { if (e.target === $('#lightbox'))
 document.addEventListener('keydown', e => { if (!$('#lightbox').open) return; if (e.key === 'ArrowLeft') openPhoto(activePhoto - 1); if (e.key === 'ArrowRight') openPhoto(activePhoto + 1); });
 $('#copy-address').addEventListener('click', () => copyText(localeValue(wedding.event.address), '주소를 복사했어요'));
 $('#account-list').addEventListener('click', e => { const b = e.target.closest('[data-account]'); if (b) copyText(wedding.accounts[Number(b.dataset.account)].number, '계좌번호를 복사했어요'); });
-$('#copy-link').addEventListener('click', () => copyText(shareUrl(), '링크를 복사했어요'));
-$('#share-button').addEventListener('click', async () => {
-  if (navigator.share) { try { await navigator.share({title:document.title, text:'결혼식에 초대합니다', url:shareUrl()}); } catch (e) { if (e.name !== 'AbortError') showToast('공유하지 못했어요'); } }
-  else copyText(shareUrl(), '링크를 복사했어요');
-});
-$('#calendar-button').addEventListener('click', () => {
-  const title = Object.values(wedding.couple).map(localeValue).join(' · ') + ' 결혼식';
-  const place = [localeValue(wedding.event.venue), localeValue(wedding.event.address)].join(', ');
-  const blob = new Blob([calendarFile(wedding.event, title, place, location.hostname)], {type:'text/calendar;charset=utf-8'});
-  const link = document.createElement('a'); link.href = URL.createObjectURL(blob); link.download = 'wedding.ics'; link.click(); setTimeout(() => URL.revokeObjectURL(link.href), 1000);
-});
 renderCover(); renderIntroduction(); renderCalendar(); renderVenue(); renderContacts(); renderAccounts(); renderGallery(); renderMovie(); updateCounters();
 let counterTimer;
 function syncCounterTimer() { clearInterval(counterTimer); updateCounters(); if (!document.hidden) counterTimer = setInterval(updateCounters, 1000); }
