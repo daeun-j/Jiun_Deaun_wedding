@@ -4,8 +4,6 @@ export const wedding = {
     groom: { en: 'Jiun Lee', ko: '이지언', phone: '', email: '' },
     bride: { en: 'Daeun Jung', ko: '정다은', phone: '', email: '' },
   },
-  // Only the date was provided; elapsed time starts at midnight in Seoul.
-  firstMet: '2025-01-09T00:00:00+09:00',
   event: {
     // ISO 8601 with the venue's UTC offset; timezone controls display and D-day.
     startsAt: '2027-01-16T11:00:00+09:00',
@@ -26,7 +24,7 @@ export const wedding = {
     ],
   },
   invitation: {
-    ko: '우연처럼 다가온 인연이\n매일을 특별하게 만들었습니다.\n서로의 이야기를 들으며 웃고,\n함께의 내일을 꿈꾸게 되었습니다.\n\n하루하루 마음이 깊어진 끝에\n우리라는 한 편의 이야기가 시작됩니다.\n두 사람의 설레는 시작에\n소중한 분의 따뜻한 축복을 기다립니다.',
+    ko: '우연처럼 다가온 인연이\n매일을 특별하게 만들었습니다.\n서로의 이야기를 들으며 웃고,\n함께의 내일을 꿈꾸게 되었습니다.\n\n하루하루 마음이 깊어진 끝에\n앞으로의 행복을 기대하려고 합니다.\n저희의 설레는 시작에\n소중한 분의 따뜻한 축복을 기다립니다.',
     en: 'Please join us on our wedding day.\nWe would love to see you there.',
   },
   schedule: [

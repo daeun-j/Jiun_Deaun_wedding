@@ -1,4 +1,4 @@
-import { wedding } from './data/wedding.js?v=wedding-photos';
+import { wedding } from './data/wedding.js?v=invitation-copy';
 import { calendarParts, daysUntil, durationParts, calendarFile } from './event-time.mjs?v=camellia-story';
 import { createBirdStory } from './bird-story.mjs?v=bird-toggle';
 import { createBackgroundMusic } from './music.mjs?v=volume-15';
@@ -8,8 +8,8 @@ const $ = (selector, scope = document) => scope.querySelector(selector);
 const $$ = (selector, scope = document) => [...scope.querySelectorAll(selector)];
 const localeValue = value => value?.ko || '';
 const start = new Date(wedding.event.startsAt);
-const firstMet = wedding.firstMet ? new Date(wedding.firstMet) : null;
 let activePhoto = 0;
+let photoNavTimer;
 
 function element(tag, text, className) {
   const el = document.createElement(tag);
@@ -27,7 +27,6 @@ function showToast(message) {
   const toast = $('#toast'); toast.textContent = message; toast.classList.add('is-visible');
   clearTimeout(showToast.timer); showToast.timer = setTimeout(() => toast.classList.remove('is-visible'), 2200);
 }
-function formatDate(date) { return new Intl.DateTimeFormat('ko-KR', { dateStyle: 'full', timeZone: wedding.event.timezone }).format(date); }
 function formatTime(date) { return new Intl.DateTimeFormat('ko-KR', { hour: 'numeric', minute: '2-digit', timeZone: wedding.event.timezone }).format(date); }
 function numericDate(date) { const p = calendarParts(date, wedding.event.timezone); return [p.year, String(p.month).padStart(2, '0'), String(p.day).padStart(2, '0')].join('.'); }
 function externalLink(label, href, className) {
@@ -79,14 +78,6 @@ function updateCounters() {
   fillCounter('#wedding-counter', durationParts(now, start));
   const days = daysUntil(start, now, wedding.event.timezone);
   $('#countdown').textContent = days < 0 ? '함께해 주셔서 감사합니다.' : days === 0 ? '오늘, 저희 결혼합니다.' : `지언, 다은의 결혼식이 ${days}일 남았습니다.`;
-  if (firstMet) fillCounter('#together-counter', durationParts(firstMet, now));
-}
-function renderStory() {
-  $('#our-time').hidden = !firstMet || !Number.isFinite(firstMet.getTime());
-  if (firstMet) $('#since-date').textContent = numericDate(firstMet) + '부터';
-  $('#summary-date').textContent = formatDate(start);
-  $('#summary-time').textContent = formatTime(start);
-  $('#summary-place').append(element('strong', localeValue(wedding.event.venue)), element('span', localeValue(wedding.event.address)));
 }
 function renderVenue() {
   $('#venue-name').textContent = localeValue(wedding.event.venue);
@@ -217,11 +208,20 @@ function renderMovie() {
   frame.append(button);
 }
 
+function revealPhotoNavigation() {
+  const lightbox = $('#lightbox');
+  if (!lightbox.open) return;
+  lightbox.classList.add('show-navigation');
+  clearTimeout(photoNavTimer);
+  photoNavTimer = setTimeout(() => lightbox.classList.remove('show-navigation'), 1800);
+}
 function openPhoto(index) {
   activePhoto = (index + wedding.photos.length) % wedding.photos.length;
   const photo = wedding.photos[activePhoto]; $('#lightbox-image').src = photo.src; $('#lightbox-image').alt = localeValue(photo.alt);
+  $('#lightbox-background').src = photo.src;
   $('#lightbox-caption').textContent = `${activePhoto + 1} / ${wedding.photos.length}`;
   if (!$('#lightbox').open) $('#lightbox').showModal();
+  revealPhotoNavigation();
 }
 function shareUrl() { return location.origin + location.pathname; }
 async function copyText(text, success) {
@@ -267,6 +267,12 @@ $('#gallery-grid').addEventListener('click', e => { const b = e.target.closest('
 $('.lightbox-close').addEventListener('click', () => $('#lightbox').close());
 $('.lightbox-prev').addEventListener('click', () => openPhoto(activePhoto - 1));
 $('.lightbox-next').addEventListener('click', () => openPhoto(activePhoto + 1));
+$('#lightbox').addEventListener('pointerdown', revealPhotoNavigation);
+$('#lightbox').addEventListener('pointermove', event => { if (event.pointerType === 'mouse') revealPhotoNavigation(); });
+$('#lightbox').addEventListener('close', () => {
+  clearTimeout(photoNavTimer);
+  $('#lightbox').classList.remove('show-navigation');
+});
 $('#lightbox').addEventListener('click', e => { if (e.target === $('#lightbox')) $('#lightbox').close(); });
 document.addEventListener('keydown', e => { if (!$('#lightbox').open) return; if (e.key === 'ArrowLeft') openPhoto(activePhoto - 1); if (e.key === 'ArrowRight') openPhoto(activePhoto + 1); });
 $('#copy-address').addEventListener('click', () => copyText(localeValue(wedding.event.address), '주소를 복사했어요'));
@@ -282,7 +288,7 @@ $('#calendar-button').addEventListener('click', () => {
   const blob = new Blob([calendarFile(wedding.event, title, place, location.hostname)], {type:'text/calendar;charset=utf-8'});
   const link = document.createElement('a'); link.href = URL.createObjectURL(blob); link.download = 'wedding.ics'; link.click(); setTimeout(() => URL.revokeObjectURL(link.href), 1000);
 });
-renderCover(); renderIntroduction(); renderCalendar(); renderStory(); renderVenue(); renderContacts(); renderAccounts(); renderGallery(); renderMovie(); updateCounters();
+renderCover(); renderIntroduction(); renderCalendar(); renderVenue(); renderContacts(); renderAccounts(); renderGallery(); renderMovie(); updateCounters();
 let counterTimer;
 function syncCounterTimer() { clearInterval(counterTimer); updateCounters(); if (!document.hidden) counterTimer = setInterval(updateCounters, 1000); }
 document.addEventListener('visibilitychange', syncCounterTimer); syncCounterTimer();

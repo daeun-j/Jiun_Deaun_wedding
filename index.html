@@ -9,8 +9,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Gowun+Batang&family=Pinyon+Script&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="./styles.css?v=gallery-three-columns" />
-    <script type="module" src="./src/main.js?v=wedding-photos"></script>
+    <link rel="stylesheet" href="./styles.css?v=photo-edge-glass" />
+    <script type="module" src="./src/main.js?v=photo-edge-glass"></script>
   </head>
   <body>
     <div class="opening" id="opening" role="dialog" aria-modal="true" aria-labelledby="opening-title">
@@ -88,8 +88,7 @@
         <a class="venue-source" href="https://www.g-towerconvention.kr/reservation/" target="_blank" rel="noopener noreferrer">예식장 교통 안내 ↗</a>
       </section>
 
-      <section class="section gallery-section" id="gallery">
-        <h2 class="section-title">두 사람의 순간</h2>
+      <section class="section gallery-section" id="gallery" aria-label="사진첩">
         <div class="gallery-grid reveal" id="gallery-grid"></div>
       </section>
 
@@ -113,30 +112,8 @@
         </div>
       </section>
 
-      <section class="section our-time" id="our-time" hidden>
-        <h2 class="section-title">함께 걸어온 시간</h2>
-        <p class="since-date" id="since-date"></p>
-        <div class="time-counter together-counter" id="together-counter" aria-label="처음 만난 날부터 함께한 시간">
-          <div><span data-unit="days">0</span><small>일</small></div><b aria-hidden="true">:</b>
-          <div><span data-unit="hours">00</span><small>시간</small></div><b aria-hidden="true">:</b>
-          <div><span data-unit="minutes">00</span><small>분</small></div><b aria-hidden="true">:</b>
-          <div><span data-unit="seconds">00</span><small>초</small></div>
-        </div>
-        <div class="save-date">
-          <img src="./assets/camellia-mark.svg" width="64" height="70" alt="" />
-          <p>새로운 시작을<br />함께해 주세요</p>
-        </div>
-        <dl class="wedding-summary">
-          <div><dt>날짜</dt><dd id="summary-date"></dd></div>
-          <div><dt>시간</dt><dd id="summary-time"></dd></div>
-          <div class="summary-place"><dt>장소</dt><dd id="summary-place"></dd></div>
-        </dl>
-      </section>
-
       <section class="section closing">
-        <p class="section-label">감사한 마음을 담아</p>
         <h2 class="closing-title">새로운 시작을<br />함께 축하해 주세요.</h2>
-        <p class="body-copy">여러분의 사랑과 축복이<br />큰 힘이 됩니다.</p>
         <div class="share-actions">
           <button class="primary-button" id="share-button" type="button">초대장 공유하기</button>
           <button class="secondary-button" id="copy-link" type="button">링크 복사</button>
@@ -171,6 +148,7 @@
       <symbol id="icon-map" viewBox="0 0 24 24"><path d="m2 5 7-3 6 3 7-3v17l-7 3-6-3-7 3V5Zm7-3v17M15 5v17" /></symbol>
     </svg>
     <dialog class="lightbox" id="lightbox" aria-label="사진 보기">
+      <div class="lightbox-ambience" aria-hidden="true"><img id="lightbox-background" alt="" /></div>
       <button class="lightbox-close" type="button" aria-label="사진 닫기">×</button>
       <button class="lightbox-nav lightbox-prev" type="button" aria-label="이전 사진">←</button>
       <figure><img id="lightbox-image" alt="" /><figcaption id="lightbox-caption" aria-live="polite"></figcaption></figure>
