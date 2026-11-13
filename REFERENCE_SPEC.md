@@ -13,9 +13,9 @@ The supplied attachment contains the brief but no recording. No video frames, ti
 | Reference / comparison | Decision for this invitation | Priority |
 | --- | --- | --- |
 | Portrait card over a neutral surround | Updated to the November 7 reference: a full-height ivory card without mobile margins, blue camellia border, script names Jiun Lee and Daeun Jung, and “Join us for the wedding of”. Venue and time are visible before opening. | Keep the couple’s chosen cover. |
-| Named illustrated hero with a real portrait | Ivory letter with a floral engraving and Korean-only body copy; no masthead or language switcher. The Korean names are 이지언 and 정다은; the cover names remain Jiun Lee and Daeun Jung. Portraits remain placeholders. | Replace sample photos when approved. |
+| Named illustrated hero with a real portrait | Ivory letter with a floral engraving and Korean-only body copy; no masthead or language switcher. The Korean names are 이지언 and 정다은; the cover names remain Jiun Lee and Daeun Jung. The gallery uses the couple's 18 supplied wedding photos. | Keep the supplied photos and requested order. |
 | Multi-day schedule, dress code, Hawaii map and questionnaire | One confirmed ceremony, Seoul-local calendar, venue shuttle and driving directions. Omit travel RSVP and attire requirements that do not apply. | Address and correct time are essential. |
-| Long narrow page with photo grid and tap-to-zoom | Centered 550px maximum reading width. The two-column, nine-row grid has 18 editable photo slots. The viewer fills the viewport using cover cropping, with overlaid controls, swipe and keyboard navigation. | Preserve the mobile reading and gallery flow. |
+| Long narrow page with photo grid and tap-to-zoom | Centered 550px maximum reading width. The three-column, six-row grid contains 18 supplied wedding photos. The viewer fills the viewport using cover cropping, with overlaid controls, swipe and keyboard navigation. | Preserve the mobile reading and gallery flow. |
 | Optional interactions described in the brief | User-initiated film, family/contact disclosures, separate account groups, copy/share and calendar export. Hide optional sections without content. | Never publish invented personal details. |
 
 Design tokens in `styles.css`: warm ivory paper (#fbf7f2), blue-gray surround (#e9eef0), ink (#4a6378), muted blue (#607789), dusty-blue accent (#718fa7); Pinyon Script names, Cormorant Garamond English, Gowun Batang Korean and system sans. Content uses 22–44px gutters, section spacing of 60–86px, headings at 29–39px / 1.45, 3:4 thumbnails, restrained corners and 400ms ease-out reveals. The card fades and moves upward over 900ms, skipped when reduced motion is requested.
@@ -32,7 +32,11 @@ Venue map, phone, hall and transit details were checked against https://www.g-to
 
 Latest copy cleanup: remove the guestbook and the small labels above the invitation, calendar, venue, gallery and elapsed-time sections. The first-met caption reads “2025.01.09부터”; the closing heading reads “새로운 시작을 함께 축하해 주세요.”
 
-Cover appointment: date, “토요일 오전 11:00”, venue; no separate weekday line. Remove the venue phone and album preview note. Keep the transport source link at https://www.g-towerconvention.kr/reservation/. The six existing placeholders repeat across 18 slots until actual photos are supplied.
+Cover appointment: date, “토요일 오전 11:00”, venue; no separate weekday line. Remove the venue phone and album preview note. Keep the transport source link at https://www.g-towerconvention.kr/reservation/.
+
+## Wedding photos, November 12
+
+Use all 18 JPEGs supplied in `wedding_files`. The original numbered 012 comes first; remaining photos follow descending source numbers: 020, 019, 018, 017, 016, 015, 014, 013, 010, 008, 007, 006, 005, 004, 003, 002, 001. Keep the 3-column, 6-row layout and full-viewport photo viewer. Serve separate 720px thumbnails and 2048px large images from `assets/photos/`; preserve the originals and the photographs' proportions and colors.
 
 ## Sparrow and camellia story
 

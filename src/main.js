@@ -1,4 +1,4 @@
-import { wedding } from './data/wedding.js?v=naver-map';
+import { wedding } from './data/wedding.js?v=wedding-photos';
 import { calendarParts, daysUntil, durationParts, calendarFile } from './event-time.mjs?v=camellia-story';
 import { createBirdStory } from './bird-story.mjs?v=bird-toggle';
 import { createBackgroundMusic } from './music.mjs?v=volume-15';
@@ -188,7 +188,7 @@ function renderGallery() {
     button.setAttribute('aria-label', localeValue(photo.alt) || '사진 보기 ' + (index + 1));
     img.alt = localeValue(photo.alt); img.loading = 'lazy'; img.width = 600; img.height = 800;
     img.addEventListener('error', () => { button.disabled = true; button.textContent = '사진을 불러올 수 없어요'; }, { once: true });
-    img.src = photo.src; button.append(img); return button;
+    img.src = photo.thumbnail || photo.src; button.append(img); return button;
   }));
 }
 function renderMovie() {
