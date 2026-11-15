@@ -135,6 +135,7 @@ body:has(dialog[open]) { overflow: hidden; }
 .primary-button { background: var(--ink); color: white; border-color: var(--ink); }
 button:disabled { opacity: .33; cursor: default; }
 .map-actions > * { flex: 1; padding-inline: 8px; font-size: 12px; }
+.map-actions #map-link { background: #fff; color: var(--ink); }
 .map-actions .icon { width: 17px; height: 17px; }
 .navigation-apps { margin-top: 35px; text-align: left; }
 .navigation-apps h3, .transport h3 { margin: 0 0 12px; font: 500 17px/1.6 var(--serif); }
