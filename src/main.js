@@ -24,7 +24,10 @@ function icon(name) {
   use.setAttribute('href', '#icon-' + name); svg.append(use); return svg;
 }
 function showToast(message) {
-  const toast = $('#toast'); toast.textContent = message; toast.classList.add('is-visible');
+  const toast = $('#toast');
+  const host = $('dialog[open]') || document.body;
+  if (toast.parentElement !== host) host.append(toast);
+  toast.textContent = message; toast.classList.add('is-visible');
   clearTimeout(showToast.timer); showToast.timer = setTimeout(() => toast.classList.remove('is-visible'), 2200);
 }
 function formatTime(date) { return new Intl.DateTimeFormat('ko-KR', { hour: 'numeric', minute: '2-digit', timeZone: wedding.event.timezone }).format(date); }
@@ -151,9 +154,9 @@ function renderAccounts() {
     const cards = accounts.map(account => {
       const card = element('article', '', 'account-card'), owner = element('div', '', 'account-owner');
       if (account.role) owner.append(element('span', account.role, 'account-role'));
-      owner.append(element('h3', account.holder)); card.append(owner);
+      owner.append(element('h4', account.holder)); card.append(owner);
       const line = element('div', '', 'account-number');
-      const copy = element('button'); copy.type = 'button'; copy.dataset.account = wedding.accounts.indexOf(account); copy.setAttribute('aria-label', account.holder + ' 계좌번호 복사'); copy.append(icon('copy'), element('span', '복사'));
+      const copy = element('button'); copy.type = 'button'; copy.dataset.account = wedding.accounts.indexOf(account); copy.setAttribute('aria-label', account.holder + ' 계좌번호 복사'); copy.append(icon('copy'));
       line.append(element('p', account.bank, 'account-bank'), element('p', account.number, 'account-digits'), copy); card.append(line);
       if (account.kakaoPayUrl) {
         try { const url = new URL(account.kakaoPayUrl); if (url.protocol === 'https:') card.append(externalLink('카카오페이로 마음 전하기 ↗', url.href, 'secondary-button kakao-pay')); } catch { /* Hide incomplete links. */ }
@@ -163,14 +166,6 @@ function renderAccounts() {
     if (!cards.length) cards.push(element('p', '계좌 정보는 추후 안내드릴게요.', 'account-empty'));
     $('#' + side + '-accounts').replaceChildren(...cards);
   }
-}
-function selectAccountSide(side, focus = false) {
-  $$('.account-tabs [role="tab"]').forEach(tab => {
-    const selected = tab.dataset.side === side;
-    tab.setAttribute('aria-selected', String(selected)); tab.tabIndex = selected ? 0 : -1;
-    $('#' + tab.getAttribute('aria-controls')).hidden = !selected;
-    if (selected && focus) tab.focus();
-  });
 }
 function renderGallery() {
   $('#gallery').hidden = !wedding.photos.length;
@@ -237,22 +232,22 @@ $('#open-invitation').addEventListener('click', async () => {
   window.scrollTo({ top: 0, behavior: 'instant' }); $('.hero-title').focus({ preventScroll: true });
   birdStory.start();
 }, { once: true });
-$('#open-contacts').addEventListener('click', () => $('#contact-dialog').showModal());
-$('.dialog-close').addEventListener('click', () => $('#contact-dialog').close());
-$('#contact-dialog').addEventListener('click', event => {
-  if (event.target !== event.currentTarget) return;
-  const r = event.currentTarget.getBoundingClientRect();
-  if (event.clientX < r.left || event.clientX > r.right || event.clientY < r.top || event.clientY > r.bottom) event.currentTarget.close();
-});
-$$('.account-tabs [role="tab"]').forEach(tab => {
-  tab.addEventListener('click', () => selectAccountSide(tab.dataset.side));
-  tab.addEventListener('keydown', event => {
-    if (!['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) return;
-    event.preventDefault();
-    const side = event.key === 'Home' ? 'groom' : event.key === 'End' ? 'bride' : tab.dataset.side === 'groom' ? 'bride' : 'groom';
-    selectAccountSide(side, true);
+for (const [trigger, target] of [['#open-contacts', '#contact-dialog'], ['#open-accounts', '#account-dialog']]) {
+  const dialog = $(target);
+  $(trigger).addEventListener('click', () => dialog.showModal());
+  $('.dialog-close', dialog).addEventListener('click', () => dialog.close());
+  dialog.addEventListener('click', event => {
+    if (event.target !== dialog) return;
+    const r = dialog.getBoundingClientRect();
+    if (event.clientX < r.left || event.clientX > r.right || event.clientY < r.top || event.clientY > r.bottom) dialog.close();
   });
-});
+  dialog.addEventListener('close', () => {
+    const toast = $('#toast', dialog);
+    if (toast) {
+      clearTimeout(showToast.timer); toast.classList.remove('is-visible'); document.body.append(toast);
+    }
+  });
+}
 let swipeStart;
 const photoFrame = $('#lightbox figure');
 photoFrame.addEventListener('touchstart', e => { swipeStart = e.touches.length === 1 ? [e.touches[0].clientX, e.touches[0].clientY] : null; }, {passive:true});

@@ -13,8 +13,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Gowun+Batang&family=Pinyon+Script&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="./styles.css?v=naver-white" />
-    <script type="module" src="./src/main.js?v=bank-account-groups"></script>
+    <link rel="stylesheet" href="./styles.css?v=account-dialog" />
+    <script type="module" src="./src/main.js?v=account-dialog"></script>
   </head>
   <body>
     <div class="opening" id="opening" role="dialog" aria-modal="true" aria-labelledby="opening-title">
@@ -102,14 +102,7 @@
 
       <section class="section account-section" id="accounts" aria-label="계좌 안내">
         <p class="body-copy" id="account-message">따뜻한 축하의 마음에<br />진심으로 감사드립니다.</p>
-        <div class="account-tabs" role="tablist" aria-label="계좌 안내">
-          <button type="button" role="tab" id="groom-tab" aria-selected="true" aria-controls="groom-accounts" data-side="groom">신랑측</button>
-          <button type="button" role="tab" id="bride-tab" aria-selected="false" aria-controls="bride-accounts" data-side="bride" tabindex="-1">신부측</button>
-        </div>
-        <div id="account-list">
-          <div class="account-cards" id="groom-accounts" role="tabpanel" aria-labelledby="groom-tab" tabindex="0"></div>
-          <div class="account-cards" id="bride-accounts" role="tabpanel" aria-labelledby="bride-tab" tabindex="0" hidden></div>
-        </div>
+        <button class="account-open secondary-button" id="open-accounts" type="button" aria-haspopup="dialog" aria-controls="account-dialog"><svg class="icon" aria-hidden="true"><use href="#icon-heart" /></svg>마음 전하실 곳</button>
       </section>
 
       <footer class="poem-ending">
@@ -127,10 +120,24 @@
 
     <div class="bird-journey"><button class="traveling-bird" type="button" aria-label="새 움직임 멈추기" aria-pressed="false" title="누르면 멈춰요"><span class="sparrow" aria-hidden="true"></span></button></div>
 
-    <dialog class="contact-dialog" id="contact-dialog" aria-labelledby="contact-dialog-title">
+    <dialog class="info-dialog contact-dialog" id="contact-dialog" aria-labelledby="contact-dialog-title">
       <div class="dialog-heading"><h2 id="contact-dialog-title">연락하기</h2><button type="button" class="dialog-close" aria-label="연락처 닫기">×</button></div>
       <div id="contact-groups"></div>
       <p class="contact-notice" id="contact-notice">연락처는 추후 안내드릴게요.</p>
+    </dialog>
+
+    <dialog class="info-dialog account-dialog" id="account-dialog" aria-labelledby="account-dialog-title">
+      <div class="dialog-heading"><h2 id="account-dialog-title">마음 전하실 곳</h2><button type="button" class="dialog-close" aria-label="계좌 안내 닫기">×</button></div>
+      <div id="account-list">
+        <section class="account-group" aria-labelledby="groom-account-heading">
+          <h3 id="groom-account-heading">신랑측</h3>
+          <div class="account-cards" id="groom-accounts"></div>
+        </section>
+        <section class="account-group" aria-labelledby="bride-account-heading">
+          <h3 id="bride-account-heading">신부측</h3>
+          <div class="account-cards" id="bride-accounts"></div>
+        </section>
+      </div>
     </dialog>
 
     <svg class="icon-definitions" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -138,6 +145,7 @@
       <symbol id="icon-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2" /><path d="m3 6 9 7 9-7" /></symbol>
       <symbol id="icon-copy" viewBox="0 0 24 24"><rect x="8" y="8" width="12" height="13" rx="2" /><path d="M15 8V3H3v13h5" /></symbol>
       <symbol id="icon-map" viewBox="0 0 24 24"><path d="m2 5 7-3 6 3 7-3v17l-7 3-6-3-7 3V5Zm7-3v17M15 5v17" /></symbol>
+      <symbol id="icon-heart" viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8Z" /></symbol>
     </svg>
     <dialog class="lightbox" id="lightbox" aria-label="사진 보기">
       <div class="lightbox-ambience" aria-hidden="true"><img id="lightbox-background" alt="" /></div>
