@@ -32,7 +32,7 @@ Venue map, phone, hall and transit details were checked against https://www.g-to
 
 Latest copy cleanup: remove the guestbook and the small labels above the invitation, calendar, venue, gallery and elapsed-time sections. The separate closing invitation section has been removed.
 
-Cover appointment: date, “토요일 오전 11:00”, venue; no separate weekday line. Remove the venue phone and album preview note. Keep the transport source link at https://www.g-towerconvention.kr/reservation/.
+Cover appointment: date, “토요일 오전 11:00”, venue; no separate weekday line. Remove the venue phone and album preview note. Remove the visible “예식장 교통 안내” source link; retain the map choices and transport details.
 
 ## Wedding photos, November 12
 
