@@ -52,7 +52,7 @@ function renderIntroduction() {
   $('#family-introduction').replaceChildren(...['groom', 'bride'].map(side => {
     const parents = wedding.family.filter(person => person.side === side).map(localeValue);
     const line = element('p');
-    line.append(element('span', parents.join(' · '), 'parents'), element('span', side === 'groom' ? '의 아들' : '의 딸', 'relationship'), element('strong', localeValue(wedding.couple[side])));
+    line.append(element('span', parents.join(' · '), 'parents'), element('span', side === 'groom' ? '의 장남' : '의 장녀', 'relationship'), element('strong', localeValue(wedding.couple[side])));
     return line;
   }));
 }

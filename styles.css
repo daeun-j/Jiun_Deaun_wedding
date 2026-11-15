@@ -102,9 +102,9 @@ body:has(dialog[open]) { overflow: hidden; }
 .invitation-poem { margin: 40px auto; font-size: clamp(14px, 3.8vw, 18px); line-height: 2.1; letter-spacing: -.035em; }
 .family-introduction { position: relative; padding-top: 30px; margin-top: 34px; }
 .family-introduction::before { content: ''; position: absolute; width: 40px; height: 1px; background: var(--line); top: 0; left: calc(50% - 20px); }
-.family-introduction p { display: flex; align-items: baseline; justify-content: center; gap: 7px; margin: 9px 0; font-size: clamp(13px, 3.65vw, 17px); white-space: nowrap; }
+.family-introduction p { display: grid; grid-template-columns: 7.5em 3em 3.3em; align-items: baseline; justify-content: center; gap: 7px; margin: 9px 0; font-size: clamp(13px, 3.65vw, 17px); white-space: nowrap; text-align: left; }
 .family-introduction .relationship { color: var(--muted); font-size: .87em; }
-.family-introduction strong { font-weight: 400; font-size: 1.1em; margin-left: 2px; }
+.family-introduction strong { font-weight: 400; font-size: 1.1em; }
 .contact-open { width: 220px; margin-top: 28px; }
 .section { border-top: 1px solid var(--line); }
 .section-note { font: 13px/1.8 var(--sans); color: var(--muted); margin: 15px 0 28px; }
