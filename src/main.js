@@ -148,7 +148,6 @@ function renderContacts() {
 }
 function renderAccounts() {
   const complete = wedding.accounts.filter(account => account.bank.trim() && account.number.trim());
-  if (complete.length) $('#account-message').innerHTML = '참석이 어려우신 분들을 위해<br />계좌번호를 안내드립니다.<br />따뜻한 마음에 감사드립니다.';
   for (const side of ['groom', 'bride']) {
     const accounts = complete.filter(account => account.side === side);
     const cards = accounts.map(account => {
