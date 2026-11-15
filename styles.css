@@ -167,33 +167,30 @@ button:disabled { opacity: .33; cursor: default; }
 .account-cards { display: grid; grid-template-columns: minmax(0, 1fr); }
 .account-card { display: grid; grid-template-columns: 64px minmax(0, 1fr); align-items: center; gap: 8px; min-width: 0; padding: 15px 0; text-align: left; }
 .account-owner { display: flex; flex-direction: column; align-items: flex-start; gap: 3px; }
-.account-role { font: 12px/1.5 var(--sans); color: var(--muted); }
-.account-card h4 { font: 400 16px var(--serif); margin: 0; }
+.account-card h4 { margin: 0; }
 .account-number { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 2px 8px; }
-.account-number p { margin: 0; font: 13px/1.65 var(--sans); overflow-wrap: anywhere; }
+.account-number p { margin: 0; font: 400 13px/1.65 var(--serif); overflow-wrap: anywhere; }
 .account-number .account-bank { grid-column: 1; grid-row: 1; }
 .account-number .account-digits { grid-column: 1; grid-row: 2; font-variant-numeric: tabular-nums; }
 .account-number button { grid-column: 2; grid-row: 1/3; display: grid; place-items: center; width: 44px; min-height: 44px; padding: 8px; border: 1px solid var(--line); border-radius: 8px; background: transparent; }
 .account-number button .icon { width: 15px; height: 15px; }
 .kakao-pay { margin-top: 20px; width: 100%; }
 .account-empty { grid-column: 1/-1; margin: 0; padding: 30px 12px; width: 100%; border: 1px solid var(--line); border-radius: 14px; font: 14px/1.7 var(--serif); color: var(--muted); background: #ffffff85; }
-.info-dialog { width: min(100%, 480px); max-width: calc(100% - 28px); max-height: calc(100dvh - 40px); margin: auto; padding: 0 20px 24px; border: 0; border-radius: 16px; background: var(--paper); color: var(--ink); overscroll-behavior: contain; }
+.info-dialog { width: min(100%, 480px); max-width: calc(100% - 28px); max-height: calc(100dvh - 40px); margin: auto; padding: 0 20px 24px; border: 0; border-radius: 16px; background: var(--paper); color: var(--ink); font: 400 16px/1.5 var(--serif); overscroll-behavior: contain; }
 .info-dialog::backdrop { background: #20364480; backdrop-filter: blur(4px); }
-.dialog-heading { display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1; background: var(--paper); padding-block: 12px; }
-.dialog-heading h2 { margin: 0; font: 400 21px var(--serif); }
-.account-dialog .dialog-heading { gap: 8px; }
-.account-dialog .dialog-heading h2 { font-size: clamp(16px, 4.5vw, 21px); line-height: 1.5; word-break: keep-all; }
+.dialog-heading { display: flex; justify-content: space-between; align-items: center; gap: 8px; position: sticky; top: 0; z-index: 1; background: var(--paper); padding-block: 12px; }
+.dialog-heading h2 { margin: 0; font: 400 clamp(16px, 4.5vw, 18px)/1.5 var(--serif); word-break: keep-all; }
 .dialog-close { border: 0; background: none; min-width: 44px; min-height: 44px; font-size: 29px; }
-.contact-group h3, .account-group > h3 { margin: 14px 0 0; padding-bottom: 12px; border-bottom: 1px solid var(--line); font: 500 16px var(--serif); }
+.contact-group h3, .account-group > h3 { margin: 14px 0 0; padding-bottom: 12px; border-bottom: 1px solid var(--line); font: 500 16px/1.5 var(--serif); }
 .contact-group + .contact-group, .account-group + .account-group { margin-top: 18px; }
 .account-card .kakao-pay { grid-column: 1/-1; }
 .contact-row { display: grid; grid-template-columns: 46px 1fr auto; gap: 5px; align-items: center; padding: 15px 0; }
-.contact-role { font: 12px var(--sans); color: var(--muted); }
-.contact-row strong { font: 400 16px var(--serif); }
+.contact-role, .account-role { font: 400 12px/1.5 var(--serif); color: var(--muted); }
+.contact-row strong, .account-card h4 { font: 400 16px/1.5 var(--serif); }
 .contact-actions { display: flex; gap: 6px; }
 .contact-actions a, .contact-actions button { display: grid; place-items: center; width: 44px; height: 40px; border: 1px solid var(--line); border-radius: 30px; background: transparent; color: inherit; }
 .contact-actions .icon { width: 17px; height: 17px; }
-.contact-notice { margin: 15px 0 0; text-align: center; font: 12px/1.7 var(--sans); color: var(--muted); }
+.contact-notice { margin: 15px 0 0; text-align: center; font: 400 12px/1.7 var(--serif); color: var(--muted); }
 .poem-ending { position: relative; overflow: hidden; text-align: center; padding: 35px 18px max(65px, env(safe-area-inset-bottom)); background: var(--paper); }
 .poem-ending blockquote { margin: 30px 0 18px; font: clamp(14px, 3.9vw, 19px)/2.25 var(--serif); letter-spacing: -.04em; }
 .poem-ending blockquote strong { font-weight: 600; }
