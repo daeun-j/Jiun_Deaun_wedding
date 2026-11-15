@@ -58,7 +58,7 @@ export const wedding = {
     { side: 'groom', role: '신랑', holder: '이지언', bank: '신한은행', number: '110-284-180146', kakaoPayUrl: '' },
     { side: 'bride', role: '아버지', holder: '정용익', bank: '농협은행', number: '367-12-091373', kakaoPayUrl: '' },
     { side: 'bride', role: '어머니', holder: '이옥주', bank: '농협은행', number: '302-0278-7362-51', kakaoPayUrl: '' },
-    { side: 'bride', role: '신부', holder: '정다은', bank: '기업은행', number: '666-0261-3701017', kakaoPayUrl: '' },
+    { side: 'bride', role: '신부', holder: '정다은', bank: '기업은행', number: '666-026137-01-017', kakaoPayUrl: '' },
   ],
   photos: [
     // Keep source 012 first, followed by the remaining source numbers descending.
