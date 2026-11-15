@@ -1,8 +1,8 @@
 // Edit this file to personalize the invitation. Empty values stay disabled in the UI.
 export const wedding = {
   couple: {
-    groom: { en: 'Jiun Lee', ko: '이지언', phone: '', email: '' },
-    bride: { en: 'Daeun Jung', ko: '정다은', phone: '', email: '' },
+    groom: { en: 'Jiun Lee', ko: '이지언', phone: '+821085610509', email: '' },
+    bride: { en: 'Daeun Jung', ko: '정다은', phone: '+821037658744', email: '' },
   },
   event: {
     // ISO 8601 with the venue's UTC offset; timezone controls display and D-day.
@@ -46,19 +46,19 @@ export const wedding = {
     { title: { ko: '자가용 · 주차' }, detail: { ko: '내비게이션에 “지타워 컨벤션” 또는\n“서울 구로구 디지털로26길 38”을 검색해 주세요.\n\n디지털로26길에서 Gate 1 또는 Gate 2로 진입\n1,400대 주차 가능 · 2시간 무료 주차' } },
   ],
   family: [
-    { side: 'groom', role: '아버지', ko: '이철수', phone: '', email: '' },
-    { side: 'groom', role: '어머니', ko: '곽향숙', phone: '', email: '' },
-    { side: 'bride', role: '아버지', ko: '정용익', phone: '', email: '' },
-    { side: 'bride', role: '어머니', ko: '이옥주', phone: '', email: '' },
+    { side: 'groom', role: '아버지', ko: '이철수', phone: '+821037820509', email: '' },
+    { side: 'groom', role: '어머니', ko: '곽향숙', phone: '+821024730509', email: '' },
+    { side: 'bride', role: '아버지', ko: '정용익', phone: '+821031324215', email: '' },
+    { side: 'bride', role: '어머니', ko: '이옥주', phone: '+821030668744', email: '' },
   ],
   accounts: [
     // Fill only the accounts you want displayed. Incomplete entries stay hidden.
-    { side: 'groom', holder: '이지언', bank: '', number: '', kakaoPayUrl: '' },
-    { side: 'groom', holder: '이철수', bank: '', number: '', kakaoPayUrl: '' },
-    { side: 'groom', holder: '곽향숙', bank: '', number: '', kakaoPayUrl: '' },
-    { side: 'bride', holder: '정다은', bank: '', number: '', kakaoPayUrl: '' },
-    { side: 'bride', holder: '정용익', bank: '', number: '', kakaoPayUrl: '' },
-    { side: 'bride', holder: '이옥주', bank: '', number: '', kakaoPayUrl: '' },
+    { side: 'groom', holder: '이지언', bank: '신한은행', number: '110 284 180146', kakaoPayUrl: '' },
+    { side: 'groom', holder: '이철수', bank: '국민은행', number: '675601 01 154262', kakaoPayUrl: '' },
+    { side: 'groom', holder: '곽향숙', bank: '신한은행', number: '928 04 266908', kakaoPayUrl: '' },
+    { side: 'bride', holder: '정다은', bank: '기업은행', number: '666 0261 3701017', kakaoPayUrl: '' },
+    { side: 'bride', holder: '정용익', bank: '농협', number: '367 12 091373', kakaoPayUrl: '' },
+    { side: 'bride', holder: '이옥주', bank: '농협', number: '302 0278 7362 51', kakaoPayUrl: '' },
   ],
   photos: [
     // Keep source 012 first, followed by the remaining source numbers descending.

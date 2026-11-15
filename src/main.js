@@ -1,4 +1,4 @@
-import { wedding } from './data/wedding.js?v=invitation-copy';
+import { wedding } from './data/wedding.js?v=family-details';
 import { calendarParts, durationParts } from './event-time.mjs?v=camellia-story';
 import { createBirdStory } from './bird-story.mjs?v=bird-toggle';
 import { createBackgroundMusic } from './music.mjs?v=volume-15';
@@ -273,7 +273,7 @@ $('#lightbox').addEventListener('close', () => {
 $('#lightbox').addEventListener('click', e => { if (e.target === $('#lightbox')) $('#lightbox').close(); });
 document.addEventListener('keydown', e => { if (!$('#lightbox').open) return; if (e.key === 'ArrowLeft') openPhoto(activePhoto - 1); if (e.key === 'ArrowRight') openPhoto(activePhoto + 1); });
 $('#copy-address').addEventListener('click', () => copyText(localeValue(wedding.event.address), '주소를 복사했어요'));
-$('#account-list').addEventListener('click', e => { const b = e.target.closest('[data-account]'); if (b) copyText(wedding.accounts[Number(b.dataset.account)].number, '계좌번호를 복사했어요'); });
+$('#account-list').addEventListener('click', e => { const b = e.target.closest('[data-account]'); if (b) copyText(wedding.accounts[Number(b.dataset.account)].number.replace(/\s/g, ''), '계좌번호를 복사했어요'); });
 renderCover(); renderIntroduction(); renderCalendar(); renderVenue(); renderContacts(); renderAccounts(); renderGallery(); renderMovie(); updateCounters();
 let counterTimer;
 function syncCounterTimer() { clearInterval(counterTimer); updateCounters(); if (!document.hidden) counterTimer = setInterval(updateCounters, 1000); }
