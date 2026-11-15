@@ -59,3 +59,5 @@ Photo viewer refinement: fit the whole photo within the viewport without croppin
 Photo viewer background: fill the surround with a stretched, blurred copy of the current photo so its edge colours extend into the unused space. Preserve the original colours without an ivory wash or blue tint; use neutral translucent glass surfaces for the controls. Keep the foreground photo sharp and uncropped, and update the background with every photo change.
 
 Keep the calendar and numeric days/hours/minutes/seconds countdown. Remove the sentence underneath that says how many days remain until Jiun and Daeun’s wedding, including its wedding-day and post-wedding variants.
+
+Remove the account section's visible eyebrow “축하의 마음” and heading “마음 전하실 곳”. Keep its explanatory paragraph, groom/bride tabs, six account cards and copy controls. Retain an accessible section label without adding a visible replacement heading.

@@ -162,6 +162,7 @@ button:disabled { opacity: .33; cursor: default; }
 .movie-frame iframe, .movie-frame video, .film-play { width: 100%; height: 100%; border: 0; }
 .film-play { background: var(--ink); color: var(--paper); border-radius: 8px; }
 .account-section { background: #eef2f45c; }
+.account-section > .body-copy { margin-top: 0; }
 .account-tabs { display: flex; width: 224px; margin: 30px auto; padding: 4px; background: #dce4e985; border-radius: 50px; }
 .account-tabs button { flex: 1; min-height: 44px; border: 0; background: transparent; border-radius: 30px; font: 15px var(--serif); color: var(--muted); }
 .account-tabs button[aria-selected="true"] { background: white; color: var(--ink); box-shadow: 0 2px 5px #4a63780d; }
