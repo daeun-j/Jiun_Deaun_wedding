@@ -6,6 +6,8 @@
 
 빌드 도구나 npm 패키지 설치 없이 HTML, CSS, ES modules로 동작합니다. 프로젝트 폴더에서 `python3 -m http.server 4173`을 실행하고 `http://localhost:4173/`을 여세요. Node 20 이상으로 `node --test tests/*.test.mjs`를 실행하면 서울 자정, 캘린더 파일, 비행 속도와 화면 밖 방향 전환을 검사합니다.
 
+`index.html`을 파일로 직접 열면 브라우저가 ES modules를 불러오지 못하므로 고정 공개 청첩장 주소로 연결합니다. 로컬 변경을 확인할 때에는 위 미리보기 서버를 사용하세요. 첫 표지의 이름·날짜·시간·장소는 HTML에도 실제 값으로 넣어 두어 초기 로딩 중 임시 문구가 보이지 않습니다. 이 정보를 바꿀 때에는 `src/data/wedding.js`와 HTML 초기 표지를 함께 갱신하세요.
+
 `sh scripts/build.sh`는 실제 공개할 파일만 새 `dist/`에 복사합니다. 이미 있으면 다른 새 폴더 이름을 인수로 주세요(예: `sh scripts/build.sh /tmp/wedding-preview-v2`). GitHub Actions는 매번 깨끗한 작업 폴더에서 같은 스크립트를 실행합니다. 개인 메모·원본·연락처 파일을 `assets/`나 `src/`에 보관하지 마세요. 두 폴더는 공개됩니다.
 
 1. 본인 계정의 청첩장 전용 저장소를 사용하세요. 상위 Desktop 저장소를 올리지 마세요.

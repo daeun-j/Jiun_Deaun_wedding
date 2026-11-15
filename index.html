@@ -6,6 +6,10 @@
     <meta name="theme-color" content="#fbf7f2" />
     <meta name="description" content="저희의 겨울 결혼식에 초대합니다. 예식 일정과 오시는 길을 확인해 주세요." />
     <title>이지언 · 정다은의 결혼식에 초대합니다</title>
+    <script>
+      // Local files cannot load the invitation's ES modules in browsers.
+      if (location.protocol === 'file:') location.replace('https://daeun-j.github.io/Jiun_Deaun_wedding/');
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Gowun+Batang&family=Pinyon+Script&display=swap" rel="stylesheet" />
@@ -20,16 +24,16 @@
           <span id="music-label">음악 켜기</span>
         </button>
       </div>
-      <article class="cover-sheet">
+      <article class="cover-sheet has-couple-names">
         <img class="camellia-frame" src="./assets/camellia-frame.webp" width="1024" height="1536" alt="" fetchpriority="high" />
         <div class="cover-copy">
           <p class="cover-prelude" lang="en">Join us<br />for the wedding of</p>
-          <h1 id="opening-title" lang="en"><span>Our</span><span>Wedding</span></h1>
-          <p class="cover-names"></p>
+          <h1 id="opening-title" lang="en"><span>Jiun Lee</span><span class="name-ampersand">&amp;</span><span>Daeun Jung</span></h1>
+          <p class="cover-names">우리, 결혼합니다.</p>
           <div class="cover-appointment">
-            <p class="opening-numeric-date"></p>
-            <p class="opening-time"></p>
-            <p class="opening-venue"></p>
+            <p class="opening-numeric-date">2027 · 01 · 16</p>
+            <p class="opening-time">토요일 오전 11:00</p>
+            <p class="opening-venue">지타워 컨벤션</p>
           </div>
           <button class="open-card" id="open-invitation" type="button">
             <span data-i18n="openLetter">초대장 펼치기</span><span aria-hidden="true">↓</span>
