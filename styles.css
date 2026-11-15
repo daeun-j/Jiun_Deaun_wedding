@@ -163,7 +163,6 @@ button:disabled { opacity: .33; cursor: default; }
 .film-play { background: var(--ink); color: var(--paper); border-radius: 8px; }
 .account-section { background: #eef2f45c; }
 .account-section > .body-copy:first-child { margin: 0 auto 24px; }
-.account-section > .body-copy:last-child { margin: 24px auto 0; }
 .account-open { width: 220px; max-width: 100%; }
 .account-cards { display: grid; grid-template-columns: minmax(0, 1fr); }
 .account-card { display: grid; grid-template-columns: 64px minmax(0, 1fr); align-items: center; gap: 8px; min-width: 0; padding: 15px 0; text-align: left; }
@@ -182,6 +181,8 @@ button:disabled { opacity: .33; cursor: default; }
 .info-dialog::backdrop { background: #20364480; backdrop-filter: blur(4px); }
 .dialog-heading { display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1; background: var(--paper); padding-block: 12px; }
 .dialog-heading h2 { margin: 0; font: 400 21px var(--serif); }
+.account-dialog .dialog-heading { gap: 8px; }
+.account-dialog .dialog-heading h2 { font-size: clamp(16px, 4.5vw, 21px); line-height: 1.5; word-break: keep-all; }
 .dialog-close { border: 0; background: none; min-width: 44px; min-height: 44px; font-size: 29px; }
 .contact-group h3, .account-group > h3 { margin: 14px 0 0; padding-bottom: 12px; border-bottom: 1px solid var(--line); font: 500 16px var(--serif); }
 .contact-group + .contact-group, .account-group + .account-group { margin-top: 18px; }

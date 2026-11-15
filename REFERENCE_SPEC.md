@@ -32,7 +32,7 @@ Venue map, phone, hall and transit details were checked against https://www.g-to
 
 Latest copy cleanup: remove the guestbook and the small labels above the invitation, calendar, venue, gallery and elapsed-time sections. The separate closing invitation section has been removed.
 
-Cover appointment: date, “토요일 오전 11:00”, venue; no separate weekday line. Remove the venue phone and album preview note. Remove the visible “예식장 교통 안내” source link; retain the map choices and transport details.
+Cover appointment: date, “토요일 오전 11:00”, venue; no separate weekday line. Remove the venue phone and album preview note. Remove the visible “예식장 교통 안내” source link; retain the map choices and transport details. Display transport sections in this order: 자가용 · 주차, 지하철 · 셔틀버스, 버스.
 
 ## Wedding photos, November 12
 
@@ -60,4 +60,4 @@ Photo viewer background: fill the surround with a stretched, blurred copy of the
 
 Keep the calendar and numeric days/hours/minutes/seconds countdown. Remove the sentence underneath that says how many days remain until Jiun and Daeun’s wedding, including its wedding-day and post-wedding variants.
 
-Remove the account section's visible eyebrow “축하의 마음” and heading “마음 전하실 곳”. Display “참석이 어려우신 분들을 위한”, then the “마음 전하실 곳” dialog button, then “따뜻한 마음에 감사드립니다.” with balanced spacing above and below the button. Omit “계좌번호를 안내드립니다.” The dialog uses the button's title and shows all six account rows and copy controls without tabs, grouped by groom/bride. Keep the section itself without a visible heading. The dialog closes with its close button, backdrop click or Escape and returns focus to its trigger; birds stay hidden while it is open. Copy feedback must appear inside the modal top layer.
+Remove the account section's visible eyebrow “축하의 마음” and heading “마음 전하실 곳”. Display “참석이 어려우신 분들을 위한”, then the “마음 전하실 곳” dialog button. Omit “계좌번호를 안내드립니다.” and place “따뜻한 마음에 감사드립니다.” only as the popup title, replacing its old “마음 전하실 곳” title. The dialog shows all six account rows and copy controls without tabs, grouped by groom/bride. Keep the section itself without a visible heading. The dialog closes with its close button, backdrop click or Escape and returns focus to its trigger; birds stay hidden while it is open. Copy feedback must appear inside the modal top layer.
