@@ -64,4 +64,4 @@ Remove the account section's visible eyebrow “축하의 마음” and heading 
 
 Both contact and account dialogs share the same Gowun Batang font and typography rules: responsive 16–18px titles, 16px group headings and names, and 12px relationship labels, with matching weights and line heights. Bank and account details use the same font at 13px. Keep these rules shared so the two popups remain visually consistent.
 
-Align the two family-introduction rows in matching columns: parent names share a left edge, relationship labels occupy the same width, and 이지언 and 정다은 share a left edge. Keep the overall group centered and preserve the current type sizes.
+Align the two family-introduction rows in matching columns: parent names share a left edge, relationship labels occupy the same width, and 이지언 and 정다은 share a left edge. Use a compact 6.7em parents' column and 3px column gaps to bring “의 장남” / “의 장녀” close to the mothers' names. Keep the overall group centered and preserve the current type sizes.
