@@ -165,14 +165,19 @@ button:disabled { opacity: .33; cursor: default; }
 .account-tabs { display: flex; width: 224px; margin: 30px auto; padding: 4px; background: #dce4e985; border-radius: 50px; }
 .account-tabs button { flex: 1; min-height: 44px; border: 0; background: transparent; border-radius: 30px; font: 15px var(--serif); color: var(--muted); }
 .account-tabs button[aria-selected="true"] { background: white; color: var(--ink); box-shadow: 0 2px 5px #4a63780d; }
-.account-cards { display: flex; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 4px 2px 15px; }
-.account-card { flex: 0 0 100%; scroll-snap-align: center; padding: 25px 20px; border-radius: 16px; background: #fff; box-shadow: 0 3px 12px #4a637809; }
-.account-card h3 { font: 400 18px var(--serif); margin: 0 0 22px; }
-.account-number { display: flex; justify-content: center; align-items: center; gap: 8px; }
-.account-number p { margin: 0; font: 14px/1.7 var(--sans); overflow-wrap: anywhere; }
-.account-number button { display: grid; place-items: center; min-width: 44px; min-height: 44px; padding: 8px; border: 0; background: transparent; }
+.account-cards { display: grid; grid-template-columns: minmax(0, 1fr); gap: 12px; padding: 4px 0 12px; }
+.account-card { min-width: 0; padding: 18px 20px; border-radius: 14px; background: #fff; box-shadow: 0 3px 12px #4a637809; text-align: left; }
+.account-owner { display: flex; align-items: center; gap: 9px; margin-bottom: 10px; }
+.account-role { font: 12px/1.5 var(--sans); color: var(--muted); }
+.account-card h3 { font: 400 17px var(--serif); margin: 0; }
+.account-number { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 2px 12px; }
+.account-number p { margin: 0; font: 13px/1.65 var(--sans); overflow-wrap: anywhere; }
+.account-number .account-bank { grid-column: 1; grid-row: 1; }
+.account-number .account-digits { grid-column: 1; grid-row: 2; font-variant-numeric: tabular-nums; }
+.account-number button { grid-column: 2; grid-row: 1/3; display: flex; justify-content: center; align-items: center; gap: 5px; min-width: 65px; min-height: 44px; padding: 8px; border: 1px solid var(--line); border-radius: 8px; background: transparent; font: 12px/1.5 var(--sans); }
+.account-number button .icon { width: 15px; height: 15px; }
 .kakao-pay { margin-top: 20px; width: 100%; }
-.account-empty { margin: 0; padding: 30px 12px; width: 100%; border: 1px solid var(--line); border-radius: 14px; font: 14px/1.7 var(--serif); color: var(--muted); background: #ffffff85; }
+.account-empty { grid-column: 1/-1; margin: 0; padding: 30px 12px; width: 100%; border: 1px solid var(--line); border-radius: 14px; font: 14px/1.7 var(--serif); color: var(--muted); background: #ffffff85; }
 .contact-dialog { width: min(100%, 480px); max-width: calc(100% - 28px); max-height: calc(100dvh - 40px); margin: auto; padding: 0 20px 24px; border: 0; border-radius: 16px; background: var(--paper); color: var(--ink); }
 .contact-dialog::backdrop { background: #20364480; backdrop-filter: blur(4px); }
 .dialog-heading { display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1; background: var(--paper); padding-block: 12px; }

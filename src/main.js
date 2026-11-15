@@ -1,4 +1,4 @@
-import { wedding } from './data/wedding.js?v=family-details';
+import { wedding } from './data/wedding.js?v=account-format';
 import { calendarParts, durationParts } from './event-time.mjs?v=camellia-story';
 import { createBirdStory } from './bird-story.mjs?v=bird-toggle';
 import { createBackgroundMusic } from './music.mjs?v=volume-15';
@@ -123,7 +123,7 @@ function renderContacts() {
   const groups = ['groom', 'bride'].map(side => {
     const group = element('section', '', 'contact-group');
     group.append(element('h3', side === 'groom' ? '신랑측' : '신부측'));
-    const people = [{...wedding.couple[side], role: side === 'groom' ? '신랑' : '신부'}, ...wedding.family.filter(person => person.side === side)];
+    const people = [...wedding.family.filter(person => person.side === side), {...wedding.couple[side], role: side === 'groom' ? '신랑' : '신부'}];
     for (const person of people) {
       const row = element('div', '', 'contact-row'), actions = element('div', '', 'contact-actions');
       row.append(element('span', person.role, 'contact-role'), element('strong', localeValue(person)));
@@ -149,10 +149,12 @@ function renderAccounts() {
   for (const side of ['groom', 'bride']) {
     const accounts = complete.filter(account => account.side === side);
     const cards = accounts.map(account => {
-      const card = element('article', '', 'account-card'); card.append(element('h3', account.holder));
+      const card = element('article', '', 'account-card'), owner = element('div', '', 'account-owner');
+      if (account.role) owner.append(element('span', account.role, 'account-role'));
+      owner.append(element('h3', account.holder)); card.append(owner);
       const line = element('div', '', 'account-number');
-      const copy = element('button'); copy.type = 'button'; copy.dataset.account = wedding.accounts.indexOf(account); copy.setAttribute('aria-label', account.holder + ' 계좌번호 복사'); copy.append(icon('copy'));
-      line.append(element('p', account.bank + ' ' + account.number), copy); card.append(line);
+      const copy = element('button'); copy.type = 'button'; copy.dataset.account = wedding.accounts.indexOf(account); copy.setAttribute('aria-label', account.holder + ' 계좌번호 복사'); copy.append(icon('copy'), element('span', '복사'));
+      line.append(element('p', account.bank, 'account-bank'), element('p', account.number, 'account-digits'), copy); card.append(line);
       if (account.kakaoPayUrl) {
         try { const url = new URL(account.kakaoPayUrl); if (url.protocol === 'https:') card.append(externalLink('카카오페이로 마음 전하기 ↗', url.href, 'secondary-button kakao-pay')); } catch { /* Hide incomplete links. */ }
       }
@@ -273,7 +275,7 @@ $('#lightbox').addEventListener('close', () => {
 $('#lightbox').addEventListener('click', e => { if (e.target === $('#lightbox')) $('#lightbox').close(); });
 document.addEventListener('keydown', e => { if (!$('#lightbox').open) return; if (e.key === 'ArrowLeft') openPhoto(activePhoto - 1); if (e.key === 'ArrowRight') openPhoto(activePhoto + 1); });
 $('#copy-address').addEventListener('click', () => copyText(localeValue(wedding.event.address), '주소를 복사했어요'));
-$('#account-list').addEventListener('click', e => { const b = e.target.closest('[data-account]'); if (b) copyText(wedding.accounts[Number(b.dataset.account)].number.replace(/\s/g, ''), '계좌번호를 복사했어요'); });
+$('#account-list').addEventListener('click', e => { const b = e.target.closest('[data-account]'); if (b) copyText(wedding.accounts[Number(b.dataset.account)].number.replace(/\D/g, ''), '계좌번호를 복사했어요'); });
 renderCover(); renderIntroduction(); renderCalendar(); renderVenue(); renderContacts(); renderAccounts(); renderGallery(); renderMovie(); updateCounters();
 let counterTimer;
 function syncCounterTimer() { clearInterval(counterTimer); updateCounters(); if (!document.hidden) counterTimer = setInterval(updateCounters, 1000); }

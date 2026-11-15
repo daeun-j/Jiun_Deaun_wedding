@@ -53,12 +53,12 @@ export const wedding = {
   ],
   accounts: [
     // Fill only the accounts you want displayed. Incomplete entries stay hidden.
-    { side: 'groom', holder: '이지언', bank: '신한은행', number: '110 284 180146', kakaoPayUrl: '' },
-    { side: 'groom', holder: '이철수', bank: '국민은행', number: '675601 01 154262', kakaoPayUrl: '' },
-    { side: 'groom', holder: '곽향숙', bank: '신한은행', number: '928 04 266908', kakaoPayUrl: '' },
-    { side: 'bride', holder: '정다은', bank: '기업은행', number: '666 0261 3701017', kakaoPayUrl: '' },
-    { side: 'bride', holder: '정용익', bank: '농협', number: '367 12 091373', kakaoPayUrl: '' },
-    { side: 'bride', holder: '이옥주', bank: '농협', number: '302 0278 7362 51', kakaoPayUrl: '' },
+    { side: 'groom', role: '아버지', holder: '이철수', bank: '국민은행', number: '675601-01-154262', kakaoPayUrl: '' },
+    { side: 'groom', role: '어머니', holder: '곽향숙', bank: '신한은행', number: '928-04-266908', kakaoPayUrl: '' },
+    { side: 'groom', role: '신랑', holder: '이지언', bank: '신한은행', number: '110-284-180146', kakaoPayUrl: '' },
+    { side: 'bride', role: '아버지', holder: '정용익', bank: '농협은행', number: '367-12-091373', kakaoPayUrl: '' },
+    { side: 'bride', role: '어머니', holder: '이옥주', bank: '농협은행', number: '302-0278-7362-51', kakaoPayUrl: '' },
+    { side: 'bride', role: '신부', holder: '정다은', bank: '기업은행', number: '666-0261-3701017', kakaoPayUrl: '' },
   ],
   photos: [
     // Keep source 012 first, followed by the remaining source numbers descending.
